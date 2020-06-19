@@ -1,0 +1,27 @@
+.boxshadow{
+    background-color: white;
+}
+
+.body{
+    background-color: whitesmoke;
+}
+
+.rse{
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-text-cen{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-title{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
