@@ -10,12 +10,13 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 
-import { ClientService } from './services/client/client.service';
+import { SellersService } from './services/sellers/sellers.service';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SellComponent } from './components/sell/sell.component';
 import { SellerregisterComponent } from './components/sellerregister/sellerregister.component';
+import { SellerloginComponent } from './components/sellerlogin/sellerlogin.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SellerregisterComponent } from './components/sellerregister/sellerregis
     HomeComponent,
     FooterComponent,
     SellComponent,
-    SellerregisterComponent
+    SellerregisterComponent,
+    SellerloginComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,7 @@ import { SellerregisterComponent } from './components/sellerregister/sellerregis
     FormsModule,
     HttpClientModule
   ],
-  providers: [ClientService],
+  providers: [SellersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,8 +7,17 @@
     margin-left: auto;
     margin-right: auto;
     background-color: white;
+    text-align: justify;
 }
 
 h2, p, h4{
     text-align: center;
+}
+
+.rse{
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
