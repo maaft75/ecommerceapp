@@ -1,0 +1,116 @@
+<div class="container-fluid mid">
+    <div class="container re col-md-5">
+      <br>
+      <div class="form-row re col-md-8">
+        <a routerLink="/registration" class="btn btn-light col-md-6">Sign Up</a>
+        <a routerLink="/login" class="btn btn-light col-md-6">Sign In</a>
+      </div>  
+      <br>  
+      <form [formGroup]="RegisterForm" (ngSubmit)="Register()">
+        <h2> CREATE A SELLER ACCOUNT </h2>
+        <p class="re"> Start selling on ECOMMERCE today! </p>
+        <hr>
+        <div class="form-group col-md-12">
+          <label for="storename">Store Name</label>
+          <input type="text" class="form-control" name="storename" id="storename" formControlName="storename">
+        </div>
+
+        <div *ngIf="storename.touched && storename.errors?.required" class="alert alert-danger">
+          This field is required
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label for="storeurl">Store Url</label>
+          <input type="text" class="form-control" name="storeurl" id="storeurl" formControlName="storeurl">
+        </div>
+  
+        <div *ngIf="storeurl.touched && storeurl.errors?.required" class="alert alert-danger">
+          This field is required
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label for="description">Description</label>
+          <input type="text" class="form-control" name="description" id="description" formControlName="description">
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label for="email">Email Address</label>
+          <input type="email" class="form-control" name="emailaddress" id="email" formControlName="emailaddress">
+        </div>
+
+        <div *ngIf="emailaddress.touched && emailaddress.errors?.required" class="alert alert-danger">
+          This field is required
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" id="password" formControlName="password">
+        </div>
+        
+        <h4> Personal Details </h4>
+        <br>
+        <div class="form-row">
+  
+          <div class="form-group col-md-6">
+            <label for="title">Title</label>
+            <select id="title" name="title" class="form-control" formControlName="title">
+              <option selected>Select</option>
+              <option>Mr</option>
+              <option>Mrs</option>
+              <option>Ms</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="firstname">First Name</label>
+            <input type="text" class="form-control" name="firstname" id="firstname" formControlName="firstname">
+          </div>
+          
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label for="lastname">Last Name</label>
+          <input type="text" class="form-control" name="lastname" id="lastname" formControlName="lastname">
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label for="phonenumber">Phone Number</label>
+          <input type="number" class="form-control" name="phonenumber" id="phonenumber" formControlName="phonenumber">
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label for="street">Street</label>
+          <input type="text" class="form-control" name="street" id="street" formControlName="street">
+        </div>
+  
+        <div class="form-row">
+  
+          <div class="form-group col-md-6">
+            <label for="state">State</label>
+            <select id="state" name="state" class="form-control" formControlName="state">
+              <option>Lagos</option>
+              <option>Oyo</option>
+              <option>Ogun</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="lga">LGA</label>
+            <select id="lga" name="lga" class="form-control" formControlName="lga">
+              <option>Ijebu</option>
+              <option>Oyo</option>
+              <option>Ondo</option>
+            </select>
+          </div>
+          
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label for="city">City</label>
+          <input type="text" name="city" class="form-control" id="city" formControlName="city">
+        </div>
+      
+        <button type="submit" class="btn btn-success col-md-12">Sign Up</button>
+        </form>
+        <br>
+    </div>
+    <br>
+  </div><p>registration works!</p>

@@ -1,0 +1,16 @@
+<div class="container-fluid col-md-12">
+    <div class="row">
+        <div class="card" style="width: 18rem;margin: 3px;" *ngFor="let product of products">
+            <img src="{{product.imageUrl}}" height="250px" width="250px"  class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.description }}</h5>
+                <p class="card-text">Store Contact : {{ product.sellerdetails.phonenumber }}</p>
+                <p class="card-text">Store Name : {{ product.sellerdetails.storename }}</p>
+                <small class="text-muted">Available Quantity : {{ product.quantity }}</small><br>
+                <small class="text-muted">Price : #{{ product.price }}</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>

@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../components/home/home.component';
-import { SellComponent } from '../components/sell/sell.component';
-import { SellerregisterComponent } from '../components/sellerregister/sellerregister.component';
-import { SellerloginComponent } from '../components/sellerlogin/sellerlogin.component';
+import { SellersComponent } from '../components/sellers/sellers.component';
+import { RegistrationComponent } from '../components/registration/registration.component';
+import { LoginComponent } from '../components/login/login.component';
+import { ProductsComponent } from '../components/products/products.component';
+import { DisplayproductsComponent } from '../components/displayproducts/displayproducts.component';
 
 export const appRoutes : Routes = [
   {path:'', component:HomeComponent},
-  {path:'sell', component:SellComponent},
-  {path:'seller-reg', component:SellerregisterComponent},
-  {path:'seller-login', component:SellerloginComponent}
+  {path:'sellers', component:SellersComponent},
+  {path:'registration', component:RegistrationComponent},
+  {path:'login', component: LoginComponent},
+  {path:'products', component: ProductsComponent},
+  {path:'displayproducts', component: DisplayproductsComponent}
 ]
 
 @NgModule({
