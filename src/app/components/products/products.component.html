@@ -1,21 +1,27 @@
 <br><br>
 <div class="container-fluid mid">
     <div class="container re col-md-5">
-      
+      <h2> Create A Product, Seller! </h2>
+      <p> Sell on ECOMMERCE now! </p>
+      <hr>
       <form [formGroup]="ProductForm" (ngSubmit)="PostProduct()">
-        <h2> Create A Product, Seller! </h2>
-        <p> Sell on ECOMMERCE now! </p>
-        <hr>
   
         <div class="form-group col-md-12">
-          <label>Description</label>
-          <input type="text" class="form-control" formControlName="Description">
+          <label>Name</label>
+          <input type="text" class="form-control" formControlName="Name">
         </div>
-  
+
+        <div class="form-group col-md-6" formGroupName="Category">
+          <label for="title">Category</label>
+          <select class="form-control form-control-sm" formControlName="Name">
+            <option *ngFor="let category of Category" [value]="category.name" selected>{{ category.name }}</option>
+          </select>
+        </div> 
+
         <div class="form-group col-md-12">
             <label>Price</label>
             <input type="number" class="form-control" formControlName="Price">
-        </div>
+        </div>       
 
         <div class="form-group col-md-12">
             <label>Quantity</label>
@@ -26,14 +32,6 @@
 
           <div class="form-group col-md-12">
             <img [src]='selectedFiles' (click)="fileuploader.click()" style="width: 200px;height: 200px;">
-            <div class="col-md-4 form-group upload">
-              <span *ngIf="progress > 0 && message">
-                {{ progress }}%
-              </span>
-              <span *ngIf="message">
-                {{ message }}
-              </span>
-            </div>
           </div>
           <input type="file" accept="image/*" class="btn btn-primary" #fileuploader (change)="OnFileSelected($event)">
           <br> <br><button type="button" (click)="AddImage()" class="btn btn-primary">Upload</button>
@@ -42,6 +40,8 @@
 
         <button type="submit" class="btn btn-success col-md-12">Create Product</button>
         </form>
+
+        
         <br>
     </div>
 </div>

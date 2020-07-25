@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products/products.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-displayproducts',
@@ -8,10 +9,11 @@ import { ProductsService } from 'src/app/services/products/products.service';
 })
 export class DisplayproductsComponent implements OnInit {
 
-  public products : any;
+  
   public url : string;
+  public products : any;
 
-  constructor(private getproducts : ProductsService) { }
+  constructor(private getproducts : ProductsService, private auth : AuthService) { }
 
   ngOnInit(): void {
     this.GetProducts();
@@ -19,17 +21,7 @@ export class DisplayproductsComponent implements OnInit {
 
   GetProducts(){
     this.getproducts.GetProduct().subscribe(
-      (data) => { this.products = data; }
+      (data) => { this.products = data; } 
     )
-  }
-              
-  Delete(id){
-    this.getproducts.DeleteProduct(id).subscribe(
-      data => { this.GetProducts() }
-    )
-  }
-
-  createImage(serverPath : string){
-    return `C:/dtracks/Backend/Backend/Resources/Images/20181117_125536.jpg`;
   }
 }

@@ -1,5 +1,4 @@
-import { HttpEventType } from '@angular/common/http';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, Form } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ProductsService } from 'src/app/services/products/products.service';
@@ -14,12 +13,14 @@ import { finalize } from 'rxjs/operators';
 })
 
 export class ProductsComponent implements OnInit {
+  
   public toUploadFile;
-  public selectedFiles = '/assets/download.png';
-  public message : string;
-  public progress : number;
-  public ProductForm : FormGroup;
+  public Category : any;
   public response : string;
+  public ProductForm : FormGroup;
+  public CategoryForm : FormGroup;
+  public selectedFiles = '/assets/download.png'; 
+  
 
   @Output() public onUploadFinished = new EventEmitter();
 
@@ -30,46 +31,49 @@ export class ProductsComponent implements OnInit {
     let user = JSON.parse(this.auth.GetUser());
 
     this.ProductForm = this.fb.group({
-      "Description" : ["", Validators.required],
+      "Name" : ["", Validators.required],
       "ImageUrl" : ["", Validators.required],
       "Price" : [""],
       "Quantity" : [""],
       "Sellerdetails" : this.fb.group({
         "id" : [user.id],
-        "title" : [user.title],
-        "firstname" : [user.firstname],
-        "lastname" : [user.lastname],
-        "emailaddress" : [user.emailaddress],
-        "password" : [user.password],
-        "storename" : [user.storename],
-        "storeurl" : [user.storeurl],
-        "description" : [user.description],
-        "state" : [user.state],
-        "lga" : [user.lga],
-        "city" : [user.city],
-        "phonenumber" : [user.phonenumber],
-        "street" : [user.street]
+        "Title" : [user.title],
+        "FirstName" : [user.firstName],
+        "LastName" : [user.lastName],
+        "EmailAddress" : [user.emailAddress],
+        "Password" : [user.password],
+        "StoreName" : [user.storeName],
+        "StoreUrl" : [user.storeUrl],
+        "Description" : [user.description],
+        "State" : [user.state],
+        "LGA" : [user.lga],
+        "City" : [user.city],
+        "PhoneNumber" : [user.phoneNumber],
+        "Street" : [user.street]
       }),
-      "Categories" : this.fb.group({
-        "id" : "1"
+      "Category" : this.fb.group({
+        "Name" : [""],
       })
     })
   }
 
-  ngOnInit(): void {} 
+  ngOnInit(): void {
+    this.GetCategory();
+  } 
 
   PostProduct = () => {
+    
     this.ProductForm.patchValue( { ImageUrl : this.response });
     this.products.PostProduct(this.ProductForm.value).subscribe(
       data => { 
         console.log(this.ProductForm.value)
-        alert(`Product Added: ${data.description}!`);
+        alert(`Product Added: ${data.name}!`)
         this.ResetForm();
-        window.location.href = "http://localhost:4200/displayproducts";
+        window.location.href = "http://localhost:4200/userproducts";
       }
-    ) 
+    )
   }
-
+  
   AddImage = () => {
     let filepath = `images/${this.toUploadFile.name}_${new Date().getTime()}`;
     let fileRef = this.storage.ref(filepath);
@@ -82,6 +86,12 @@ export class ProductsComponent implements OnInit {
       })
       })
     ).subscribe()
+  }
+
+  GetCategory = () => {
+    this.products.GetCategory().subscribe(
+      (data) => { this.Category = data }
+    )
   }
 
   ResetForm = () => {
@@ -103,20 +113,4 @@ export class ProductsComponent implements OnInit {
     }
     console.log(this.toUploadFile);
   }
-
-  //Used to handle image upload on locahost
-  /* OnUpload(){
-    const fd = new FormData();
-    fd.append('image', this.toUploadFile, this.toUploadFile.name)
-
-    this.products.UploadImage(fd).subscribe(event => {
-      if(event.type === HttpEventType.UploadProgress){
-        this.progress = Math.round(event.loaded / event.total * 100)
-      }else if(event.type === HttpEventType.Response){
-        this.message = "Successful!"
-        this.response = event.body;
-        console.log(this.response);
-      }
-    })
-  } */
 }

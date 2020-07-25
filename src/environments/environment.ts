@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   rootUrl:"https://localhost:44319/sellers/",
   productUrl:"https://localhost:44319/products/",
+  categoryUrl:"https://localhost:44319/category/",
   firebaseConfig : {
     apiKey: "AIzaSyAhp7ehPnYS6tisxuHefTzhlqLU-GF2qDk",
     authDomain: "storeimagegallery.firebaseapp.com",

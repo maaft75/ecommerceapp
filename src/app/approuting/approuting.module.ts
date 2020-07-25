@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../guards/authguard/auth.guard';
 import { HomeComponent } from '../components/home/home.component';
-import { SellersComponent } from '../components/sellers/sellers.component';
-import { RegistrationComponent } from '../components/registration/registration.component';
 import { LoginComponent } from '../components/login/login.component';
+import { SellersComponent } from '../components/sellers/sellers.component';
 import { ProductsComponent } from '../components/products/products.component';
+import { RegistrationComponent } from '../components/registration/registration.component';
 import { DisplayproductsComponent } from '../components/displayproducts/displayproducts.component';
+import { UserproductsComponent } from '../components/userproducts/userproducts.component';
 
 export const appRoutes : Routes = [
-  {path:'', component:HomeComponent},
+  {path:'', component: DisplayproductsComponent},
   {path:'sellers', component:SellersComponent},
-  {path:'registration', component:RegistrationComponent},
-  {path:'login', component: LoginComponent},
-  {path:'products', component: ProductsComponent},
-  {path:'displayproducts', component: DisplayproductsComponent}
+  {path:'sellers/registration', component:RegistrationComponent},
+  {path:'sellers/login', component: LoginComponent},
+  {path:'products', component: ProductsComponent, canActivate : [  AuthGuard ]},
+  {path:'userproducts', component: UserproductsComponent}
 ]
 
 @NgModule({

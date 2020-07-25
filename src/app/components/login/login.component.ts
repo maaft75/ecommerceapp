@@ -17,9 +17,7 @@ export class LoginComponent implements OnInit {
     })
    }
 
-  ngOnInit(): void {
-    console.log(this.LoginForm.value);
-  }
+  ngOnInit(): void {}
 
   Login(){
     this.auth.Login(this.LoginForm.value).subscribe(
@@ -27,7 +25,7 @@ export class LoginComponent implements OnInit {
         this.auth.SaveUser(data)
         this.auth.SaveToken(data.token)
         console.log(data)
-        window.location.href = "http://localhost:4200/products";
+        window.location.href = "http://localhost:4200/userproducts";
       }
     );
   }

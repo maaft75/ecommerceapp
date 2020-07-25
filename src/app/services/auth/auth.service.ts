@@ -35,4 +35,20 @@ export class AuthService {
   GetUser(){
     return localStorage.getItem('user');
   }
+
+  isAuthenticated(){
+    if(this.GetToken()){
+      return true;
+    }
+    return false;
+  }
+
+  DeleteToken(){
+    return localStorage.removeItem('token');
+  }
+
+  DeleteUser(){
+    return localStorage.removeItem('user');
+  }
 }
+
