@@ -66,7 +66,7 @@ export class RegistrationComponent implements OnInit {
     this.auth.Register(this.RegisterForm.value).subscribe(
       data => { 
         alert(`Registration successful for ${data.id}!`);
-        window.location.href = "http://localhost:4200/login";
+        window.location.href = "https://oja.netlify.app/login";
        } 
     )
   }

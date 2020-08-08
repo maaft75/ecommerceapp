@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       data => {
         this.auth.SaveUser(data)
         this.auth.SaveToken(data.token)
-        window.location.href = "http://localhost:4200/dashboard/userproducts";
+        window.location.href = "https://oja.netlify.app/dashboard/userproducts";
       }
     );
   }
