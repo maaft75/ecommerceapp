@@ -16,7 +16,7 @@ export class SidebarComponent implements OnInit {
   Logout(){
     this.auth.DeleteToken();
     this.auth.DeleteUser();
-    window.location.href = "http://localhost:4200";
+    window.location.href = "https://oja.netlify.app/4200";
   }
 
 }
