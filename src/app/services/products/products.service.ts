@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth/auth.service';
+import { identifierModuleUrl } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,6 @@ export class ProductsService {
 
   productsUrl = environment.productUrl;
   categoryUrl = environment.categoryUrl;
-  imageUrl = environment.productUrl + 'AddImage';
 
   constructor(private http : HttpClient, private auth: AuthService) { }
 
@@ -19,6 +19,12 @@ export class ProductsService {
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', `Bearer ${this.auth.GetToken()}`)
     return this.http.get(this.productsUrl, {headers});
+  }
+
+  GetProductById(id) : Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Authorization', `Bearer ${this.auth.GetToken()}`)
+    return this.http.get(this.productsUrl + id, {headers});
   }
 
   PostProduct(products) : Observable<any>{
@@ -38,18 +44,12 @@ export class ProductsService {
   UpdateProduct(id, data){
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', `Bearer ${this.auth.GetToken()}`);
-    return this.http.put(this.productsUrl , data, {headers})
+    return this.http.put(this.productsUrl + id, data, {headers})
   }
 
   GetCategory(){
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', `Bearer ${this.auth.GetToken()}`)
     return this.http.get(this.categoryUrl, {headers})
-  }
-
-  UploadImage(data){
-    let headers = new HttpHeaders();
-    headers = headers.set('Authorization', `Bearer ${this.auth.GetToken()}`)
-    return this.http.post(this.imageUrl, data, {headers, reportProgress:true, observe:'events'})
   }
 }

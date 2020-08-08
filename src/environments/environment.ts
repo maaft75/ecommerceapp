@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  rootUrl:"https://localhost:44319/sellers/",
-  productUrl:"https://localhost:44319/products/",
-  categoryUrl:"https://localhost:44319/category/",
+  rootUrl:"https://backend7149.azurewebsites.net/sellers/",
+  productUrl:"https://backend7149.azurewebsites.net/products/",
+  categoryUrl:"https://backend7149.azurewebsites.net/category/",
   firebaseConfig : {
     apiKey: "AIzaSyAhp7ehPnYS6tisxuHefTzhlqLU-GF2qDk",
     authDomain: "storeimagegallery.firebaseapp.com",
@@ -20,8 +20,9 @@ export const environment = {
 };
 
 /*
-https://ecommercebymaaft.azurewebsites.net/
-https://ecommercebymaaft.azurewebsites.net/sellers/
+   rootUrl:"https://localhost:44319/sellers/",
+  productUrl:"https://localhost:44319/products/",
+  categoryUrl:"https://localhost:44319/category/",
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
  *

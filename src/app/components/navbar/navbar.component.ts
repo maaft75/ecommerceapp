@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,14 +10,22 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class NavbarComponent implements OnInit {
 
   public show : boolean;
-  constructor(private auth : AuthService) { }
+  public categories : any;
+  constructor(private auth : AuthService, private getproducts : ProductsService) { }
 
   ngOnInit(): void {
     if(this.auth.GetUser()){
-      this.show = false;
-    }else{
       this.show = true;
+    }else{
+      this.show = false;
     }
+    this.getCategories();
+  }
+
+  getCategories = () => {
+    this.getproducts.GetCategory().subscribe(
+      (data) => {this.categories = data}
+    )
   }
 
   logout = () => {

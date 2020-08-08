@@ -7,13 +7,43 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
+
 export class RegistrationComponent implements OnInit {
+
+  public states = [
+    { id : 1, name : "Lagos" },
+    { id : 2, name : "Ogun" },
+    { id : 3, name : "Oyo" },
+    { id : 4, name : "Osun" },
+    { id : 5, name : "Ondo" }
+  ];
+
+  public LGA = [
+    { id : "Lagos", name : "Ikeja" },
+    { id : "Lagos", name : "Lekki" },
+    { id : "Lagos", name : "Ikorodu" },
+    { id : "Lagos", name : "Yaba" },
+    { id : "Lagos", name : "Surulere" },
+    { id : "Ogun", name : "Ijebu" },
+    { id : "Ogun", name : "Abeokuta" },
+    { id : "Ogun", name : "Sagamu" },
+    { id : "Oyo", name : "Ibadan" },
+    { id : "Oyo", name : "Oyo" },
+    { id : "Osun", name : "Ilesha" },
+    { id : "Osun", name : "Oshogbo" },
+    { id : "Ondo", name : "Akure" },
+    { id : "Ondo", name : "Owo" },
+    { id : "Ondo", name : "Ondo" }
+  ]
+ ;
+
+  public lga;
 
   RegisterForm : FormGroup;
   constructor(private fb : FormBuilder, private auth : AuthService) {
     this.RegisterForm = this.fb.group({
       "storename":["", [Validators.required]],
-      "storeurl":['www.ecommerce.com/'+"",[Validators.required]],
+      "storeurl":['www.oja.com/'+"",[Validators.required]],
       "title":["",[Validators.required]],
       "firstname":["",[Validators.required]],
       "lastname":["",[Validators.required]],
@@ -33,12 +63,16 @@ export class RegistrationComponent implements OnInit {
 
   Register(){
     console.log(this.RegisterForm.value);
-    this.auth.Register(this.RegisterForm.value).subscribe(data =>
-      {
+    this.auth.Register(this.RegisterForm.value).subscribe(
+      data => { 
         alert(`Registration successful for ${data.id}!`);
         window.location.href = "http://localhost:4200/login";
-      }
+       } 
     )
+  }
+
+  GetLga = (value) => {
+    this.lga = this.LGA.filter(x => x.id == value);
   }
 
   get storename(){

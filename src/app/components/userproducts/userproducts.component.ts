@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { Router } from '@angular/router';
+import { identity } from 'rxjs';
 
 @Component({
   selector: 'app-userproducts',
@@ -12,7 +14,7 @@ export class UserproductsComponent implements OnInit {
   public url : string;
   public products : any;
 
-  constructor(private getproducts : ProductsService, private auth : AuthService) { }
+  constructor(private getproducts : ProductsService, private auth : AuthService, private router : Router) { }
 
   ngOnInit(): void {
     this.GetProducts();
@@ -27,6 +29,8 @@ export class UserproductsComponent implements OnInit {
       } 
     )
   }
+
+  Update(id){ this.router.navigate(["updateproduct", id]) }
               
   Delete(id){
     this.getproducts.DeleteProduct(id).subscribe(

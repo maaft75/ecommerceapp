@@ -10,6 +10,7 @@ export class AuthService {
 
   registerUrl = environment.rootUrl + 'register';
   loginUrl = environment.rootUrl + 'login';
+  
   constructor(private http : HttpClient) { }
 
   Register(data) : Observable<any> {

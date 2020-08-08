@@ -24,8 +24,7 @@ export class LoginComponent implements OnInit {
       data => {
         this.auth.SaveUser(data)
         this.auth.SaveToken(data.token)
-        console.log(data)
-        window.location.href = "http://localhost:4200/userproducts";
+        window.location.href = "http://localhost:4200/dashboard/userproducts";
       }
     );
   }

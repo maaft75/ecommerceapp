@@ -12,6 +12,7 @@ export class DisplayproductsComponent implements OnInit {
   
   public url : string;
   public products : any;
+  title : string = 'Angular'
 
   constructor(private getproducts : ProductsService, private auth : AuthService) { }
 

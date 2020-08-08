@@ -2,8 +2,8 @@
     <div class="container re col-md-5">
       <br>
       <div class="form-row re col-md-8">
-        <a routerLink="/sellers/registration" class="btn btn-light col-md-6">Sign Up</a>
-        <a routerLink="/sellers/login" class="btn btn-light col-md-6">Sign In</a>
+        <a routerLink="/registration" class="btn btn-light col-md-6">Sign Up</a>
+        <a routerLink="/login" class="btn btn-light col-md-6">Sign In</a>
       </div>  
       <br>  
       <form [formGroup]="RegisterForm" (ngSubmit)="Register()">
@@ -86,18 +86,16 @@
   
           <div class="form-group col-md-6">
             <label for="state">State</label>
-            <select id="state" name="state" class="form-control" formControlName="state">
-              <option>Lagos</option>
-              <option>Oyo</option>
-              <option>Ogun</option>
+            <select id="state" name="state" class="form-control" formControlName="state" (change)="GetLga($event.target.value)">
+              <option value="">Select State</option>
+              <option *ngFor="let state of states" [value]="state.name">{{ state.name }}</option>
             </select>
           </div>
           <div class="form-group col-md-6">
             <label for="lga">LGA</label>
             <select id="lga" name="lga" class="form-control" formControlName="lga">
-              <option>Ijebu</option>
-              <option>Oyo</option>
-              <option>Ondo</option>
+              <option value="">Select LGA</option>
+              <option *ngFor="let l of lga" [value]="l.name">{{ l.name }}</option>
             </select>
           </div>
           

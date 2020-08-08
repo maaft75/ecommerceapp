@@ -1,20 +1,15 @@
-<div class="container-fluid col-md-12">
-    <h3> {{ user.storeName  }}'s Dashboard </h3>
-    <hr>
-    <a href="http://localhost:4200/products" style="float: right;" class="btn btn-info btn-md">Create Product</a>
+<div class="container-fluid">
     <div class="row">
-        <div class="card" style="width: 18rem;margin: 3px;" *ngFor="let product of products">
-            <img src="{{product.imageUrl}}" height="250px" width="250px"  class="card-img-top">
-            <div class="card-body">
-                <h5>Category : {{ product.category.name }}</h5>
-                <h6 class="card-title">Product Name : {{ product.name }}</h6>
-                <small class="text-muted">Available Quantity : {{ product.quantity }}</small><br> 
-                <small class="text-muted">Price : #{{ product.price }}</small><br><br>
-                <button style="float: left;" class="btn btn-info btn-sm">Update</button>
-                <button style="float: right;" class="btn btn-danger btn-sm">Delete</button>
-            </div> 
+        <div class="col-md-3" *ngFor="let product of products">
+            <img src="{{product.imageUrl}}" class="image">
+            <hr>
+            <h6>{{ product.category.name }}</h6>
+            <h6>Price : #{{ product.price }}</h6>
+            <h6> Quantity : {{ product.quantity }}</h6>
+            <hr>
+            <button class="btn btn-info btn-sm">Details</button>
+            <hr>
         </div>
     </div>
 </div>
-
 <br>
