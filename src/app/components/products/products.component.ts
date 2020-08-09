@@ -4,6 +4,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -25,7 +26,10 @@ export class ProductsComponent implements OnInit {
   @Output() public onUploadFinished = new EventEmitter();
 
   constructor(private products : ProductsService,
-    private fb : FormBuilder, private auth : AuthService, private storage : AngularFireStorage) 
+    private fb : FormBuilder, 
+    private auth : AuthService, 
+    private storage : AngularFireStorage,
+    private router : Router) 
     {
 
     let user = JSON.parse(this.auth.GetUser());
@@ -69,7 +73,7 @@ export class ProductsComponent implements OnInit {
         console.log(this.ProductForm.value)
         alert(`Product Added: ${data.name}!`)
         this.ResetForm();
-        window.location.href = "http://oja.netlify.app/userproducts";
+        this.router.navigate(["userproducts"]);
       }
     )
   }
