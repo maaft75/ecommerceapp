@@ -27,19 +27,19 @@ export class DisplayproductsComponent implements OnInit {
 
   GetMenProducts(){
     this.getproducts.GetProduct().subscribe(
-      (data) => { this.menProducts = data.filter( x => x.category.name == "Men's Fashion" ) } 
+      (data) => { this.menProducts = data.filter( x => x.category.name == "Men's Fashion" ).reverse().slice(0,4) } 
     )
   }
 
   GetWomenProducts(){
     this.getproducts.GetProduct().subscribe(
-      (data) => { this.womenProducts = data.filter( x => x.category.name == "Women's Fashion" ) } 
+      (data) => { this.womenProducts = data.filter( x => x.category.name == "Women's Fashion" ).reverse().slice(0,4) } 
     )
   }
 
   GetItProducts(){
     this.getproducts.GetProduct().subscribe(
-      (data) => { this.itProducts = data.filter( x => x.category.name == "IT" ) } 
+      (data) => { this.itProducts = data.filter( x => x.category.name == "IT" ).reverse().slice(0,4) } 
     )
   }
 
