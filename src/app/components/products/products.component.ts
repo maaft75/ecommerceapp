@@ -73,7 +73,7 @@ export class ProductsComponent implements OnInit {
         console.log(this.ProductForm.value)
         alert(`Product Added: ${data.name}!`)
         this.ResetForm();
-        this.router.navigate(["userproducts"]);
+        this.router.navigate(["dashboard/userproducts"]);
       }
     )
   }
