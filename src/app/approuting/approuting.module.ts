@@ -8,6 +8,8 @@ import { DisplayproductsComponent } from '../components/displayproducts/displayp
 import { UserproductsComponent } from '../components/userproducts/userproducts.component';
 import { UpdateproductComponent } from '../components/updateproduct/updateproduct.component';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
+import { ProductdetailsComponent } from '../components/productdetails/productdetails.component';
+import { CategoriesComponent } from '../components/categories/categories.component';
 
 export const appRoutes : Routes = [
   {path:'', component: DisplayproductsComponent},
@@ -18,10 +20,13 @@ export const appRoutes : Routes = [
       {path:'products', component: ProductsComponent, canActivate : [  AuthGuard ]},
       {path:'userproducts', component: UserproductsComponent, canActivate : [  AuthGuard ]}
   ]},
-  {path:'updateproduct/:id', component: UpdateproductComponent, canActivate : [  AuthGuard ]}
+  {path:'updateproduct/:id', component: UpdateproductComponent, canActivate : [  AuthGuard ]},
+  {path:'productdetails/:id', component: ProductdetailsComponent},
+  {path:'categories/:category', component: CategoriesComponent}
 ]
 
 @NgModule({
+  
   imports: [
     RouterModule
   ],

@@ -66,8 +66,6 @@ export class UpdateproductComponent implements OnInit {
     this.getproduct.GetProductById(this.ProductId).subscribe(data => {
       this.Products = data; 
 
-      console.log(this.Products);
-
       this.ProductForm = this.fb.group({
         "Id" : [this.Products.id],
         "Name" : [this.Products.name],
@@ -112,7 +110,7 @@ export class UpdateproductComponent implements OnInit {
     console.log(this.ProductForm.value);
     this.getproduct.UpdateProduct(this.Products.id, this.ProductForm.value).subscribe(data => {
       alert("Product Updated!");
-      this.route.navigate(["userproducts"]);
+      this.route.navigate(["dashboard/userproducts"]);
     }) 
   }
 

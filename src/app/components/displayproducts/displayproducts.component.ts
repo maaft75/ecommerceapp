@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products/products.service';
-import { AuthService } from 'src/app/services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-displayproducts',
@@ -9,20 +9,34 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class DisplayproductsComponent implements OnInit {
 
-  
-  public url : string;
-  public products : any;
-  title : string = 'Angular'
+  public menProducts : any;
+  public womenProducts : any;
+  public categories : any;
 
-  constructor(private getproducts : ProductsService, private auth : AuthService) { }
+  constructor(
+    private getproducts : ProductsService, 
+    private router : Router) 
+    { }
 
   ngOnInit(): void {
-    this.GetProducts();
+    this.GetMenProducts();
+    this.GetWomenProducts();
   }
 
-  GetProducts(){
+  GetMenProducts(){
     this.getproducts.GetProduct().subscribe(
-      (data) => { this.products = data; } 
+      (data) => { this.menProducts = data.filter( x => x.category.name == "Men's Fashion" ) } 
     )
   }
+
+  GetWomenProducts(){
+    this.getproducts.GetProduct().subscribe(
+      (data) => { this.womenProducts = data.filter( x => x.category.name == "Women's Fashion" ) } 
+    )
+  }
+
+  Details = (id) => {
+    this.router.navigate(["productdetails", id]);
+  }
+
 }

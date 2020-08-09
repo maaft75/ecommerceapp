@@ -48,14 +48,33 @@
 
 <div class="box container-fluid col-md-11">
     <br>
+    <h4> Men's Fashion </h4>
+    <hr>
     <div class="row">
-        <div class="col-md-3" *ngFor="let product of products">
+        <div class="col-md-3" *ngFor="let product of menProducts">
             <img src="{{product.imageUrl}}" class="image">
             <hr>
             <h6>{{ product.category.name }}</h6>
             <h6>Price : #{{ product.price }}</h6>
             <hr>
-            <button class="btn btn-info btn-sm">Details</button>
+            <button class="btn btn-info btn-sm" (click)="Details(product.id)">Details</button>
+            <hr>
+        </div>
+    </div>
+</div>
+
+<div class="box container-fluid col-md-11">
+    <br>
+    <h4> Women's Fashion </h4>
+    <hr>
+    <div class="row">
+        <div class="col-md-3" *ngFor="let product of womenProducts">
+            <img src="{{product.imageUrl}}" class="image">
+            <hr>
+            <h6>{{ product.category.name }}</h6>
+            <h6>Price : #{{ product.price }}</h6>
+            <hr>
+            <button class="btn btn-info btn-sm" (click)="Details(product.id)">Details</button>
             <hr>
         </div>
     </div>

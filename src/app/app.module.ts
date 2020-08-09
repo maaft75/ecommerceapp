@@ -29,7 +29,8 @@ import { UserproductsComponent } from './components/userproducts/userproducts.co
 import { UpdateproductComponent } from './components/updateproduct/updateproduct.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ProductdetailsComponent } from './productdetails/productdetails.component';
+import { ProductdetailsComponent } from './components/productdetails/productdetails.component';
+import { CategoriesComponent } from './components/categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ProductdetailsComponent } from './productdetails/productdetails.compone
     UpdateproductComponent,
     SidebarComponent,
     DashboardComponent,
-    ProductdetailsComponent
+    ProductdetailsComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,

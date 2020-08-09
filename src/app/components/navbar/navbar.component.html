@@ -15,7 +15,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <div>
-            <a class="dropdown-item" href="/category/{{ category.name }}" *ngFor="let category of categories">{{ category.name }}</a>
+            <a class="dropdown-item" (click)="GetCategory(category.name)" href="/categories/{{ category.name }}" *ngFor="let category of categories">{{ category.name }}</a>
           </div>
         </div>
       </li>
