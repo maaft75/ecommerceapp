@@ -12,6 +12,7 @@ export class DisplayproductsComponent implements OnInit {
   public menProducts : any;
   public womenProducts : any;
   public categories : any;
+  public itProducts : any;
 
   constructor(
     private getproducts : ProductsService, 
@@ -21,6 +22,7 @@ export class DisplayproductsComponent implements OnInit {
   ngOnInit(): void {
     this.GetMenProducts();
     this.GetWomenProducts();
+    this.GetItProducts();
   }
 
   GetMenProducts(){
@@ -32,6 +34,12 @@ export class DisplayproductsComponent implements OnInit {
   GetWomenProducts(){
     this.getproducts.GetProduct().subscribe(
       (data) => { this.womenProducts = data.filter( x => x.category.name == "Women's Fashion" ) } 
+    )
+  }
+
+  GetItProducts(){
+    this.getproducts.GetProduct().subscribe(
+      (data) => { this.itProducts = data.filter( x => x.category.name == "IT" ) } 
     )
   }
 
