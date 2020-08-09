@@ -5,9 +5,11 @@
             <hr>
             <h6>{{ product.category.name }}</h6>
             <h6>Price : #{{ product.price }}</h6>
+            <h6>{{ product.name }}</h6>
             <h6> Quantity : {{ product.quantity }}</h6>
             <hr>
-            <button class="btn btn-info btn-sm">Details</button>
+            <a class="btn btn-info btn-sm" (click)="Update()">Update</a> <hr>
+            <a class="btn btn-info btn-sm" (click)="Delete(product.id)">Update</a>
             <hr>
         </div>
     </div>

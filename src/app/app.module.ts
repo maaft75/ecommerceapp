@@ -29,6 +29,7 @@ import { UserproductsComponent } from './components/userproducts/userproducts.co
 import { UpdateproductComponent } from './components/updateproduct/updateproduct.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ProductdetailsComponent } from './productdetails/productdetails.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     UserproductsComponent,
     UpdateproductComponent,
     SidebarComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProductdetailsComponent
   ],
   imports: [
     BrowserModule,
