@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from 'src/app/services/products/products.service';
 
 @Component({
@@ -13,7 +13,8 @@ export class CategoriesComponent implements OnInit {
   categoryProducts : any;
   constructor(
     private activatedRoute : ActivatedRoute,
-    private getproducts : ProductsService
+    private getproducts : ProductsService,
+    private router : Router
     ) {}
 
   ngOnInit(): void {
@@ -25,10 +26,13 @@ export class CategoriesComponent implements OnInit {
 
   GetProductsByCategories = () => {
     this.getproducts.GetProduct().subscribe( data => 
-      { 
-        this.categoryProducts = data.filter(x => x.category.name == this.categoryLink);
-        console.log(this.categoryProducts)
-      }
-    )}
+    { 
+      this.categoryProducts = data.filter(x => x.category.name == this.categoryLink);
+      console.log(this.categoryProducts)
+    }
+  )}
 
+    Details = (id) => {
+      this.router.navigate(["productdetails", id]);
+    }
 }
