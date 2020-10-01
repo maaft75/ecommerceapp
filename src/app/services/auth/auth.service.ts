@@ -8,8 +8,8 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
 
-  registerUrl = environment.SellerUrl + 'register';
-  loginUrl = environment.SellerUrl + 'login';
+  registerUrl = environment.sellerUrl + 'register';
+  loginUrl = environment.sellerUrl + 'login';
   
   constructor(private http : HttpClient) { }
 
