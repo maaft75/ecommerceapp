@@ -20,7 +20,7 @@ import { AuthGuard } from './guards/authguard/auth.guard';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
-import { HomepageComponent } from './components/buyers/homepage/homepage.component';
+import { HomepageComponent } from './components/Buyers/homepage/homepage.component';
 import { LoginComponent } from './components/Buyers/login/login.component';
 import { RegistrationComponent } from './components/Buyers/registration/registration.component';
 
