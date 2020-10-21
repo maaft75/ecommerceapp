@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  buyerUrl:"https://ojabackend.herokuapp.com/api/buyers/",
   sellerUrl:"https://ojabackend.herokuapp.com/api/sellers/",
   productUrl:"https://ojabackend.herokuapp.com/api/products/",
   categoryUrl:"https://ojabackend.herokuapp.com/api/categories/",

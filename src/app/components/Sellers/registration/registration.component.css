@@ -1,0 +1,14 @@
+.mid{
+    background-color: white;
+}
+
+.re{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+h2, p, h4{
+    text-align: center;
+}

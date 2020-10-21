@@ -1,28 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../guards/authguard/auth.guard';
-import { LoginComponent } from '../components/login/login.component';
-import { ProductsComponent } from '../components/products/products.component';
-import { RegistrationComponent } from '../components/registration/registration.component';
-import { DisplayproductsComponent } from '../components/displayproducts/displayproducts.component';
-import { UserproductsComponent } from '../components/userproducts/userproducts.component';
-import { UpdateproductComponent } from '../components/updateproduct/updateproduct.component';
-import { DashboardComponent } from '../components/dashboard/dashboard.component';
-import { ProductdetailsComponent } from '../components/productdetails/productdetails.component';
-import { CategoriesComponent } from '../components/categories/categories.component';
+
+import { HomepageComponent as BuyersHomePage } from '../components/buyers/homepage/homepage.component' ;
+import { HomepageComponent as SellersHomePage } from '../components/Sellers/homepage/homepage.component';
+import { LoginComponent as BuyersLogin } from '../components/Buyers/login/login.component';
+import { LoginComponent as SellersLogin } from '../components/Sellers/login/login.component';
+import { DashboardComponent as SellersDashboard } from '../components/Sellers/dashboard/dashboard.component';
+import { RegistrationComponent as BuyersRegister} from '../components/Buyers/registration/registration.component';
+import { RegistrationComponent as SellersRegister } from '../components/Sellers/registration/registration.component';
 
 export const appRoutes : Routes = [
-  {path:'', component: DisplayproductsComponent},
-  {path:'registration', component:RegistrationComponent},
-  {path:'login', component: LoginComponent},
-  {path:'dashboard', component: DashboardComponent, canActivate : [ AuthGuard ],
-    children : [
-      {path:'products', component: ProductsComponent, canActivate : [  AuthGuard ]},
-      {path:'userproducts', component: UserproductsComponent, canActivate : [  AuthGuard ]}
-  ]},
-  {path:'updateproduct/:id', component: UpdateproductComponent, canActivate : [  AuthGuard ]},
-  {path:'productdetails/:id', component: ProductdetailsComponent},
-  {path:'categories/:category', component: CategoriesComponent}
+  {path:'', component: BuyersHomePage},
+  {path:'login', component: BuyersLogin},
+  {path:'register', component: BuyersRegister},
+  {path:'seller', component: SellersHomePage},
+  {path:'sell/register', component: SellersRegister},
+  {path:'sell/login', component: SellersLogin},
+  {path:'sell/dashboard', component:SellersDashboard}
 ]
 
 @NgModule({

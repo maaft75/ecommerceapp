@@ -1,0 +1,110 @@
+<div class="container-fluid mid">
+    <div class="container re col-md-5"> 
+      <br>  
+      <form [formGroup]="RegisterForm" (ngSubmit)="Register()">
+        <h2> CREATE A SELLER ACCOUNT </h2>
+        <p class="re"> Start selling on ECOMMERCE today! </p>
+        <hr>
+        <div class="form-group col-md-12">
+          <label for="storeName">Store Name</label>
+          <input type="text" class="form-control" name="storeName" id="storeName" formControlName="storeName">
+        </div>
+
+        <div *ngIf="storeName.touched && storeName.errors?.required" class="alert alert-danger">
+          This field is required
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label for="storeUrl">Store Url</label>
+          <input type="text" class="form-control" name="storeUrl" id="storeUrl" formControlName="storeUrl">
+        </div>
+  
+        <div *ngIf="storeUrl.touched && storeUrl.errors?.required" class="alert alert-danger">
+          This field is required
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label for="description">Description</label>
+          <input type="text" class="form-control" name="description" id="description" formControlName="description">
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label for="email">Email Address</label>
+          <input type="email" class="form-control" name="emailAddress" id="email" formControlName="emailAddress">
+        </div>
+
+        <div *ngIf="emailAddress.touched && emailAddress.errors?.required" class="alert alert-danger">
+          This field is required
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" id="password" formControlName="password">
+        </div>
+        
+        <h4> Personal Details </h4>
+        <br>
+        <div class="form-row">
+  
+          <div class="form-group col-md-6">
+            <label for="title">Title</label>
+            <select id="title" name="title" class="form-control" formControlName="title">
+              <option selected>Select</option>
+              <option>Mr</option>
+              <option>Mrs</option>
+              <option>Ms</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="firstName" formControlName="firstName">
+          </div>
+          
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" name="lastName" id="lastName" formControlName="lastName">
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="number" class="form-control" name="phoneNumber" id="phoneNumber" formControlName="phoneNumber">
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label for="street">Street</label>
+          <input type="text" class="form-control" name="street" id="street" formControlName="street">
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label for="city">City</label>
+          <input type="text" name="city" class="form-control" id="city" formControlName="city">
+        </div>
+
+        <div class="form-row">
+  
+          <div class="form-group col-md-12">
+            <label for="state">State</label>
+            <select id="state" name="state" class="form-control" formControlName="state" (change)="GetLga($event.target.value)">
+              <option value="">Select State</option>
+              <option *ngFor="let state of states" [value]="state.name">{{ state.name }}</option>
+            </select>
+          </div>
+          <!-- <div class="form-group col-md-6">
+            <label for="lga">LGA</label>
+            <select id="lga" name="lga" class="form-control" formControlName="lga">
+              <option value="">Select LGA</option>
+              <option *ngFor="let l of lga" [value]="l.name">{{ l.name }}</option>
+            </select>
+          </div> -->
+        </div>
+      
+        <button type="submit" class="btn btn-success col-md-12">Sign Up</button>
+        <a routerLink="/sell/login">Already registered ? Log in here</a>
+        <br><br><br><br><br><br><br><br>
+        </form>
+        <br>
+    </div>
+    <br>
+  </div>

@@ -1,0 +1,54 @@
+<div class="container-fluid mid">
+    <div class="container re col-md-5"> 
+        <br>
+        <form [formGroup]="registerForm" (ngSubmit)="Register()">
+            <h4> CREATE A BUYER ACCOUNT </h4>
+            <p class="re"> Cheap Rates, Fast Delivery! </p>
+            <hr>
+
+            <div class="form-group col-md-12">
+                <label for="title">Title</label>
+                <select id="title" name="title" class="form-control" formControlName="title">
+                  <option selected>Select your title</option>
+                  <option>Mr</option>
+                  <option>Mrs</option>
+                  <option>Ms</option>
+                </select>
+              </div>
+            
+            <div class="form-group col-md-12">
+                <label for="emailAddress">Email Address</label>
+                <input type="email" class="form-control" name="emailAddress" id="emailAddress" formControlName="emailAddress">
+            </div>
+
+            <div class="form-group col-md-12">
+                <label for="phoneNumber">Phone number</label>
+                <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" formControlName="phoneNumber">
+            </div>
+
+            <div class="form-group col-md-12">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" formControlName="firstName">
+            </div>
+
+            <div class="form-group col-md-12">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" formControlName="lastName">
+            </div>
+
+            <div class="form-group col-md-12">
+                <label for="password">Password</label>
+                <input type="text" class="form-control" id="password" name="password" formControlName="password">
+            </div>
+
+            <div class="form-group col-md-12">
+                <label for="location">Location</label>
+                <input type="text" class="form-control" id="location" name="location" formControlName="location">
+            </div>
+
+            <button type="submit" class="btn btn-success col-md-12">Sign Up</button>
+            <a routerLink="/login">Already registered ? Log in here</a>
+            <br><br><br><br><br><br><br><br>
+        </form>
+    </div>
+</div>

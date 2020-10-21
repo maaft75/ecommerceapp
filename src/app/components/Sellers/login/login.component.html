@@ -1,0 +1,32 @@
+<br><br>
+<div class="container-fluid mid">
+    <div class="container re col-md-5">
+      <br> 
+      
+      <form [formGroup]="LoginForm" (ngSubmit)="Login()">
+        <h4>LOGIN INTO YOUR SELLER ACCOUNT</h4>
+        <p> Start selling on OJA today! </p>
+        <hr>
+  
+        <div class="form-group col-md-12">
+          <label for="email">Email Address</label>
+          <input type="email" class="form-control" id="email" formControlName="EmailAddress">
+        </div>
+  
+        <div class="form-group col-md-12">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="Password">
+        </div>
+      
+        <button type="submit" class="btn btn-success col-md-12">Sign In</button>
+        </form>
+        <br>
+        <a href="#"> Forgot Pasword? </a>
+    </div>
+   
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>

@@ -15,37 +15,30 @@ import { environment } from 'src/environments/environment'
 import { AuthGuard } from './guards/authguard/auth.guard';
 
 //Services
-import { AuthService } from './services/auth/auth.service';
-import { ProductsService } from './services/products/products.service';
 
 //Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { RegistrationComponent } from './components/registration/registration.component';
-import { LoginComponent } from './components/login/login.component';
-import { ProductsComponent } from './components/products/products.component';
-import { DisplayproductsComponent } from './components/displayproducts/displayproducts.component';
-import { UserproductsComponent } from './components/userproducts/userproducts.component';
-import { UpdateproductComponent } from './components/updateproduct/updateproduct.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ProductdetailsComponent } from './components/productdetails/productdetails.component';
-import { CategoriesComponent } from './components/categories/categories.component';
+
+import { HomepageComponent } from './components/buyers/homepage/homepage.component';
+import { LoginComponent } from './components/Buyers/login/login.component';
+import { RegistrationComponent } from './components/Buyers/registration/registration.component';
+
+import { LoginComponent as SellersLogin} from './components/Sellers/login/login.component';
+import { RegistrationComponent as SellersRegister } from './components/Sellers/registration/registration.component';
+import { DashboardComponent as SellersDashboard } from './components/Sellers/dashboard/dashboard.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    RegistrationComponent,
     LoginComponent,
-    ProductsComponent,
-    DisplayproductsComponent,
-    UserproductsComponent,
-    UpdateproductComponent,
-    SidebarComponent,
-    DashboardComponent,
-    ProductdetailsComponent,
-    CategoriesComponent
+    NavbarComponent,
+    SellersRegister,
+    SellersLogin,
+    HomepageComponent,
+    RegistrationComponent,
+    SellersDashboard
   ],
   imports: [
     BrowserModule,
@@ -56,7 +49,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
     AngularFireModule.initializeApp( environment.firebaseConfig ),
     AngularFireStorageModule
   ],
-  providers: [AuthService, ProductsService, AuthGuard],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
