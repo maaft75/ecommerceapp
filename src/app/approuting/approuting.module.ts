@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../guards/authguard/auth.guard';
 
-import { HomepageComponent as BuyersHomePage } from '../components/buyers/homepage/homepage.component' ;
+import { HomepageComponent as BuyersHomePage } from '../components/Buyers/homepage/homepage.component' ;
 import { HomepageComponent as SellersHomePage } from '../components/Sellers/homepage/homepage.component';
 import { LoginComponent as BuyersLogin } from '../components/Buyers/login/login.component';
 import { LoginComponent as SellersLogin } from '../components/Sellers/login/login.component';
