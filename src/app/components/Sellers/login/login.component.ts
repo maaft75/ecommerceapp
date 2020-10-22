@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
     this.auth.Login(this.LoginForm.value).subscribe(
       data => {
         this.auth.SaveSeller(data);
+        this.auth.SaveToken(data.token);
         this.router.navigate(["sell/dashboard"]);
       })
   }

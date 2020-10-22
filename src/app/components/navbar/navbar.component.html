@@ -18,7 +18,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="show">
           <span></span>
           <a href="/seller" class="btn btn-light nav-buttons"> 
             <span>
@@ -34,6 +34,15 @@
             </span>
             Help
           </a>&nbsp;
+        </li>
+        <li class="nav-item" *ngIf="!show">
+          <span></span>
+          <a href="/seller" class="btn btn-light nav-buttons"> 
+            <span>
+              <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fseller.png?alt=media&token=5e7e8342-cf5f-479f-9b8f-1f0662674dd9">
+            </span>
+            Logout
+          </a>&nbsp; 
         </li>
         <li class="nav-item dropdown" *ngIf="show">
           <a class="btn btn-light nav-buttons dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

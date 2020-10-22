@@ -27,6 +27,7 @@ import { RegistrationComponent } from './components/Buyers/registration/registra
 import { LoginComponent as SellersLogin} from './components/Sellers/login/login.component';
 import { RegistrationComponent as SellersRegister } from './components/Sellers/registration/registration.component';
 import { DashboardComponent as SellersDashboard } from './components/Sellers/dashboard/dashboard.component';
+import { AddproductComponent } from './components/sellers/addproduct/addproduct.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { DashboardComponent as SellersDashboard } from './components/Sellers/das
     SellersLogin,
     HomepageComponent,
     RegistrationComponent,
-    SellersDashboard
+    SellersDashboard,
+    AddproductComponent
   ],
   imports: [
     BrowserModule,

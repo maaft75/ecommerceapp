@@ -9,6 +9,7 @@ import { LoginComponent as SellersLogin } from '../components/Sellers/login/logi
 import { DashboardComponent as SellersDashboard } from '../components/Sellers/dashboard/dashboard.component';
 import { RegistrationComponent as BuyersRegister} from '../components/Buyers/registration/registration.component';
 import { RegistrationComponent as SellersRegister } from '../components/Sellers/registration/registration.component';
+import { AddproductComponent } from '../components/sellers/addproduct/addproduct.component';
 
 export const appRoutes : Routes = [
   {path:'', component: BuyersHomePage},
@@ -17,7 +18,8 @@ export const appRoutes : Routes = [
   {path:'seller', component: SellersHomePage},
   {path:'sell/register', component: SellersRegister},
   {path:'sell/login', component: SellersLogin},
-  {path:'sell/dashboard', component:SellersDashboard}
+  {path:'sell/dashboard', component:SellersDashboard, canActivate : [AuthGuard] },
+  {path:'addproduct', component:AddproductComponent, canActivate : [AuthGuard] }
 ]
 
 @NgModule({

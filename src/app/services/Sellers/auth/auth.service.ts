@@ -1,4 +1,3 @@
-import { importExpr } from '@angular/compiler/src/output/output_ast';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
@@ -25,17 +24,27 @@ export class AuthService {
     return this.http.post<Login>(this.loginUrl, data);
   }
 
-  SaveSeller = (user) => {
-    localStorage.setItem('user', JSON.stringify(user))
+  SaveSeller = (seller) => {
+    localStorage.setItem('seller', JSON.stringify(seller))
   }
   
+  SaveToken = (token) => {
+    localStorage.setItem('token', token);
+  }
+
+  GetToken = () => {
+    localStorage.getItem('token');
+  }
+
   GetSeller = () => {
-    return localStorage.getItem('user');
+    return localStorage.getItem('seller');
   }
 
   isAuthenticated = () => {
-    if(this.GetSeller != null ){
-      return true
+    if(this.GetSeller() != null ){
+      return true;
+    }else{
+      return false;
     }
   }
   
