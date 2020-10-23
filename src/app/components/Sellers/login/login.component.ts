@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       data => {
         this.auth.SaveSeller(data);
         this.auth.SaveToken(data.token);
-        this.router.navigate(["sell/dashboard"]);
+        window.location.href = "https://oja.netlify.app/sell/dashboard"
       })
   }
 }

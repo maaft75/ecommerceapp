@@ -15,7 +15,7 @@ export const appRoutes : Routes = [
   {path:'', component: BuyersHomePage},
   {path:'login', component: BuyersLogin},
   {path:'register', component: BuyersRegister},
-  {path:'seller', component: SellersHomePage},
+  {path:'sell', component: SellersHomePage},
   {path:'sell/register', component: SellersRegister},
   {path:'sell/login', component: SellersLogin},
   {path:'sell/dashboard', component:SellersDashboard, canActivate : [AuthGuard] },

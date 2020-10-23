@@ -24,8 +24,8 @@ export class AuthService {
     return this.http.post<Login>(this.loginUrl, data);
   }
 
-  SaveSeller = (seller) => {
-    localStorage.setItem('seller', JSON.stringify(seller))
+  SaveSeller = (user) => {
+    localStorage.setItem('user', JSON.stringify(user))
   }
   
   SaveToken = (token) => {
@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   GetSeller = () => {
-    return localStorage.getItem('seller');
+    return localStorage.getItem('user');
   }
 
   isAuthenticated = () => {

@@ -10,6 +10,7 @@ import { AuthService } from '../auth/auth.service';
 export class ProductsService {
 
   productUrl = environment.productUrl;
+  categoryUrl = environment.categoryUrl;
 
   constructor(private http : HttpClient, private auth : AuthService) { }
 
@@ -20,9 +21,8 @@ export class ProductsService {
     return this.http.get(this.productUrl);
   }
 
-  GetProduct() : Observable<any>{
-    let headers = new HttpHeaders();
-    headers = headers.set('Authorization', `Bearer ${this.auth.GetToken()}`)
-    return this.http.get(this.productUrl, {headers});
+  GetCategory = () : Observable<any> => {
+    return this.http.get(this.categoryUrl);
   }
+  
 }
