@@ -15,6 +15,8 @@ export class DashboardComponent implements OnInit {
   Logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    window.location.href="http://localhost:4200/"
+    window.location.href="https://oja.netlify.app";
+    //https://oja.netlify.app/
+    //http://localhost:4200/
   }
 }
