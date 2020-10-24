@@ -15,7 +15,6 @@ import { finalize } from 'rxjs/operators';
 export class AddproductComponent implements OnInit {
 
   public productForm : FormGroup;
-  public categoryForm : FormGroup;
   public sellerForm : FormGroup;
   public Categories : Array<Category>;
   public selectedFiles: any = '/assets/download.png';
@@ -38,6 +37,7 @@ export class AddproductComponent implements OnInit {
         "id": [""]
       }),
       "seller" : this.fb.group({
+        "id" : [seller.id],
         "title" : [seller.title],
         "emailAddress" : [seller.emailAddress],
         "phoneNumber" : [seller.phoneNumber],
@@ -64,10 +64,6 @@ export class AddproductComponent implements OnInit {
     )
   }
 
-  AddProduct(){
-    console.log(this.productForm.value);
-  }
-
   OnFileSelected(event : any ){
     if(event.target.files && event.target.files[0]){
       var reader = new FileReader();
@@ -81,7 +77,7 @@ export class AddproductComponent implements OnInit {
       this.selectedFiles = '/assets/download.png';
       this.toUploadFile = null;
     }
-    console.log(this.toUploadFile);
+    //console.log(this.toUploadFile);
   }
 
   AddImage = () => {
@@ -96,6 +92,21 @@ export class AddproductComponent implements OnInit {
       })
       })
     ).subscribe()
+  }
+
+  ResetForm(){
+    this.productForm.reset();
+  }
+  
+  AddProduct(){
+    this.productForm.patchValue( { imageUrl : this.response });
+    this.products.AddProducts(this.productForm.value).subscribe(
+      data => { 
+        alert(`Product Added: ${data.name}!`)
+        this.ResetForm();
+        this.router.navigate(["sell/dashboard"]);
+      }
+    )
   }
 
 }

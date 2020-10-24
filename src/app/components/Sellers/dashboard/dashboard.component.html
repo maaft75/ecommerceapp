@@ -1,12 +1,14 @@
 <div class="col-md-12">
     <br>
     <div class="row">
-        <div class="col-md-3">
-            <ul>
-                <li><a class="btn btn-info" href="/addproduct">Create Product</a></li>
-                <br>
-                <li><button class="btn btn-danger">Logout</button></li>
-            </ul>
+        <div class="col-md-2">
+            <a class="sidelink" href="/addproduct">Create Product</a>
+            <hr>
+            <a class="sidelink" href="/profile">Profile</a>
+            <hr>
+            <a class="sidelink" href="/analytics">Analytics</a>
+            <hr>
+            <button (click)="Logout()" class="btn btn-outline-danger">Logout</button>   
         </div>
         <div class="col-md-9">
         </div>

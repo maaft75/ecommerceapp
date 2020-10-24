@@ -15,14 +15,19 @@ export class ProductsService {
   constructor(private http : HttpClient, private auth : AuthService) { }
 
   GetProducts() : Observable<any>{
-    //let headers = new HttpHeaders();
-    //headers = headers.set('Authorization', `Bearer ${this.auth.GetToken()}`)
-    //return this.http.get<any>(this.productUrl, {headers});
     return this.http.get(this.productUrl);
   }
 
   GetCategory = () : Observable<any> => {
     return this.http.get(this.categoryUrl);
+  }
+
+  AddProducts(product) : Observable<any>{
+    let headers = new HttpHeaders();
+    headers = headers.set('Authorization', `Bearer ${this.auth.GetToken()}`)
+    headers = headers.set('Accept', 'application/json')
+    headers = headers.set('Content-Type', 'application/json')
+    return this.http.post<any>(this.productUrl, product, {headers})
   }
   
 }

@@ -12,4 +12,9 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  Logout(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    window.location.href="http://localhost:4200/"
+  }
 }

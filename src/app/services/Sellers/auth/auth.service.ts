@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   GetToken = () => {
-    localStorage.getItem('token');
+    return localStorage.getItem('token');
   }
 
   GetSeller = () => {
