@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
   Logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    window.location.href = "http://localhost:4200/"
+    window.location.href = "https://oja.netlify.app/"
   }
 
 }
