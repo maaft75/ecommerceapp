@@ -9,7 +9,7 @@ import { LoginComponent as SellersLogin } from '../components/Sellers/login/logi
 import { DashboardComponent as SellersDashboard } from '../components/Sellers/dashboard/dashboard.component';
 import { RegistrationComponent as BuyersRegister} from '../components/Buyers/registration/registration.component';
 import { RegistrationComponent as SellersRegister } from '../components/Sellers/registration/registration.component';
-import { AddproductComponent } from '../components/Sellers/addproduct/addproduct.component';
+import { AddproductComponent } from '../components/Sellers/addproduct/addproduct.component'; 
 
 export const appRoutes : Routes = [
   {path:'', component: BuyersHomePage},
