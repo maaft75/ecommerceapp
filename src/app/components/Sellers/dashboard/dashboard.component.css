@@ -3,5 +3,32 @@
 }
 
 .add{
-    float: right;
+    margin: 6px;
+}
+
+.addbutton{
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
+    box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
+}
+
+.cardbox{
+    margin: 3px;
+    border: none;
+}
+
+.imagebox{
+    height: 250px; 
+    width: 270px;
+    margin-bottom: 3px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
+    box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
+}
+
+.cardbodybox{
+    width: 270px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
+    box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
 }
