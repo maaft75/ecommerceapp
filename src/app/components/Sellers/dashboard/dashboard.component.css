@@ -41,4 +41,7 @@ li a{
 
 
 @media (min-width : 767px){
+    .mainbox{
+        width: 200px;
+    }
 }
