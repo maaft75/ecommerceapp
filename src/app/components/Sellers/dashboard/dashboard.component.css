@@ -1,9 +1,5 @@
-.sidelink{
-    color: black;
-}
-
 .add{
-    margin: 6px;
+    margin-bottom: 6px;
 }
 
 .addbutton{
@@ -12,23 +8,37 @@
     box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
 }
 
-.cardbox{
-    margin: 3px;
+li a{
+    color: black;
+}
+
+.card{
     border: none;
 }
 
-.imagebox{
-    height: 250px; 
-    width: 270px;
-    margin-bottom: 3px;
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
-    box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
+.cardbox{
+    color: white;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(5,3,28,1) 24%, rgba(77,150,166,1) 90%);
+    margin: 1px;
 }
 
-.cardbodybox{
-    width: 270px;
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
-    box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
+@media (max-width : 1099px){
+    .sidebar{
+        display : none;
+    }
+}
+
+@media (max-width : 767px){
+
+}
+
+@media (min-width : 1100px){
+    .addbutton{
+        display: none;
+    }
+}
+
+
+@media (min-width : 767px){
 }
