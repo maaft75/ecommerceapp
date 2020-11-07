@@ -10,7 +10,23 @@
 }
 
 .ht{
-    height: 380px;
+    height: 350px;
+}
+
+@media (max-width : 1100px){
+    .disappear{display: none;}
+}
+
+.brand{
+    width: 20px;
+    height: 20px;
+}
+
+.categorybox{
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
+    box-shadow: 0px 0px 5px 0px rgba(247,193,247,1);
+    margin: 3px;
 }
 
 .image{

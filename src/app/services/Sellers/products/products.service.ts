@@ -28,5 +28,5 @@ export class ProductsService {
     headers = headers.set('Accept', 'application/json')
     headers = headers.set('Content-Type', 'application/json')
     return this.http.post<any>(this.productUrl, product, {headers})
-  }  
+  }
 }
