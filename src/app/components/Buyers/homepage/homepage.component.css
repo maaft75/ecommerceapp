@@ -9,6 +9,10 @@
     background-color: white;
 }
 
+.ht{
+    height: 380px;
+}
+
 .image{
     border-radius: 70%;
     width: 100px;
