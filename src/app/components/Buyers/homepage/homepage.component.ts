@@ -9,20 +9,39 @@ import { ProductsService } from 'src/app/services/Sellers/products/products.serv
 })
 export class HomepageComponent implements OnInit {
 
-  public menProducts : any;
-  public womenProducts : any;
+  public fashions : any;
+  public electronics : any;
   public categories : any;
-  public itProducts : any;
+  public phones : any;
 
   constructor(
     private router : Router,
-    private category : ProductsService) 
+    private productService : ProductsService) 
     { }
 
   ngOnInit(): void {
-    this.category.GetCategory().subscribe(
-      (data) => { this.categories = data.slice(0,5);console.log(this.categories)}
-    );
+    this.productService.GetCategory().subscribe(
+      (data) => { 
+        this.categories = data.slice(0,5);
+      });
+
+    this.productService.GetProducts().subscribe(
+      (data) => {
+        this.fashions = data.filter(x => x.category.name == "Fashion").slice(0,4);
+        console.log(this.fashions)
+      })
+
+    this.productService.GetProducts().subscribe(
+      (data) => {
+        this.phones = data.filter(x => x.category.name == "Phones").slice(0,4);
+        console.log(this.phones)
+      })
+
+    this.productService.GetProducts().subscribe(
+      (data) => {
+        this.electronics = data.filter(x => x.category.name == "Electronics").slice(0,4);
+        console.log(this.electronics)
+      })
   }
 
 

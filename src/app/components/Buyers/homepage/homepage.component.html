@@ -104,4 +104,76 @@
           </p> 
         </div>
     </div>
+    <br/>
+
+    <div class="row">
+      <div class="col-md-5">
+        <hr/>
+      </div>
+      <div class="col-md-2">
+        <h5 style="text-align: center;"> <b> Fashion </b> </h5>
+      </div>
+      <div class="col-md-5">
+        <hr/>
+      </div>
+    </div>
+    <div class="row box">
+      
+      <div class="col-md-3" *ngFor="let fashion of fashions">
+
+        <br/>
+        <img src="{{ fashion.imageUrl }}" class="image">
+
+      </div>
+      
+    </div>
+    <br/>
+
+    <div class="row">
+      <div class="col-md-5">
+        <hr/>
+      </div>
+      <div class="col-md-2">
+        <h5 style="text-align: center;"> <b> Electronics </b> </h5>
+      </div>
+      <div class="col-md-5">
+        <hr/>
+      </div>
+    </div>
+    <div class="row box">
+      
+      <div class="col-md-3" *ngFor="let electronic of electronics">
+
+        <br/>
+        <img src="{{ electronic.imageUrl }}" class="image">
+
+      </div>
+      
+    </div>
+    <br/>
+
+    <div class="row box">
+      <div class="col-md-5">
+        <hr/>
+      </div>
+      <div class="col-md-2">
+        <h5 style="text-align: center;"> <b> Phones </b> </h5>
+      </div>
+      <div class="col-md-5">
+        <hr/>
+      </div>
+    </div>
+    <div class="row box">
+      
+      <div class="col-md-3" *ngFor="let phone of phones">
+
+        <br/>
+        <img src="{{ phone.imageUrl }}" class="image">
+
+      </div>
+      
+    </div>
+    <br/>
+    <br/>
+    <br/>
 </div>
