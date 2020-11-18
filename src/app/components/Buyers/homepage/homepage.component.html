@@ -83,7 +83,7 @@
             <span>
               <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fseller.png?alt=media&token=5e7e8342-cf5f-479f-9b8f-1f0662674dd9">
             </span>
-            &nbsp;Sell on Oja <a href="/sell" class="specia">here</a>
+            &nbsp;Sell on Oja <a href="/sell" class="special">here</a>
           </p> 
         </div>
     </div>
@@ -101,10 +101,8 @@
       </div>
     </div>
     <div class="row box">
-      <div class="col-md-3" *ngFor="let fashion of fashions">
-        <div>
-          <img src="{{ fashion.imageUrl }}" class="image">
-        </div>
+      <div class="imgdiv" *ngFor="let fashion of fashions">
+        <img src="{{ fashion.imageUrl }}" class="image">
       </div>
     </div>
     <br/>

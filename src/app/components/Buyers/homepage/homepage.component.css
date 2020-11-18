@@ -43,24 +43,26 @@
     margin-bottom: 1px;
 }
 
-.rse{
-    width: 100px;
-    height: 100px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.image{
+    width: 200px;
+    height: 200px;
+    padding: 10px 10px 10px 10px;
 }
 
-.image{
-    width: 300px;
-    height: 300px;
-    margin-bottom: 13px;
-    margin-top: 13px;
+img:hover{
+    opacity: .5;
+    transition: .9s;
 }
 
 @media (max-width : 767px){
     .carousel{
         margin: 10px;
+    }
+
+    .image{
+        width: 100px;
+        height: 100px;
+        padding: 10px 10px 10px 10px;
     }
 }
 
@@ -72,22 +74,18 @@
     background-color: whitesmoke;
 }
 
-.card-text-cen{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.card-title{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 a{
     color: black;
 }
 
 a.special{
     color:blue;
+}
+
+.imgdiv{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
