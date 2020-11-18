@@ -56,8 +56,6 @@
     height: 200px;
     margin-bottom: 13px;
     margin-top: 13px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 @media (max-width : 767px){
@@ -72,14 +70,6 @@
 
 .body{
     background-color: whitesmoke;
-}
-
-.rse{
-    width: 100px;
-    height: 100px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .card-text-cen{
