@@ -28,6 +28,10 @@
           <input type="text" class="form-control" name="description" id="description" formControlName="description">
         </div>
   
+        <div class="alert alert-danger" *ngIf="description.touched && description.errors?.required">
+          <small>This field is required.</small>
+        </div>
+
         <div class="form-group col-md-12">
           <label for="email">Email Address</label>
           <input type="email" class="form-control" name="emailAddress" id="email" formControlName="emailAddress">
@@ -41,25 +45,35 @@
           <label for="password">Password</label>
           <input type="password" class="form-control" name="password" id="password" formControlName="password">
         </div>
+
+        <div class="alert alert-danger" *ngIf="password.touched && password.errors?.required">
+          <small>This field is required.</small>
+        </div>
         
         <h4> Personal Details </h4>
         <br>
-        <div class="form-row">
-  
-          <div class="form-group col-md-6">
-            <label for="title">Title</label>
-            <select id="title" name="title" class="form-control" formControlName="title">
-              <option selected>Select</option>
-              <option>Mr</option>
-              <option>Mrs</option>
-              <option>Ms</option>
-            </select>
-          </div>
-          <div class="form-group col-md-6">
-            <label for="firstName">First Name</label>
-            <input type="text" class="form-control" name="firstName" id="firstName" formControlName="firstName">
-          </div>
-          
+        
+        <div class="form-group col-md-12">
+          <label for="title">Title</label>
+          <select id="title" name="title" class="form-control" formControlName="title">
+            <option selected>Select</option>
+            <option>Mr</option>
+            <option>Mrs</option>
+            <option>Ms</option>
+          </select>
+        </div>
+
+        <div class="alert alert-danger" *ngIf="title.touched && title.errors?.required">
+          <small>This field is required.</small>
+        </div>
+
+        <div class="form-group col-md-12">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" name="firstName" id="firstName" formControlName="firstName">
+        </div>
+
+        <div class="alert alert-danger" *ngIf="firstName.touched && firstName.errors?.required">
+          <small>This field is required.</small>
         </div>
   
         <div class="form-group col-md-12">
@@ -67,19 +81,35 @@
           <input type="text" class="form-control" name="lastName" id="lastName" formControlName="lastName">
         </div>
   
+        <div class="alert alert-danger" *ngIf="lastName.touched && lastName.errors?.required">
+          <small>This field is required.</small>
+        </div>
+
         <div class="form-group col-md-12">
           <label for="phoneNumber">Phone Number</label>
           <input type="number" class="form-control" name="phoneNumber" id="phoneNumber" formControlName="phoneNumber">
+        </div>
+
+        <div class="alert alert-danger" *ngIf="phoneNumber.touched && phoneNumber.errors?.required">
+          <small>This field is required.</small>
         </div>
   
         <div class="form-group col-md-12">
           <label for="street">Street</label>
           <input type="text" class="form-control" name="street" id="street" formControlName="street">
         </div>
+
+        <div class="alert alert-danger" *ngIf="street.touched && street.errors?.required">
+          <small>This field is required.</small>
+        </div>
   
         <div class="form-group col-md-12">
           <label for="city">City</label>
           <input type="text" name="city" class="form-control" id="city" formControlName="city">
+        </div>
+
+        <div class="alert alert-danger" *ngIf="city.touched && city.errors?.required">
+          <small>This field is required.</small>
         </div>
 
         <div class="form-row">
@@ -91,6 +121,10 @@
               <option *ngFor="let state of states" [value]="state.name">{{ state.name }}</option>
             </select>
           </div>
+
+          <div class="alert alert-danger" *ngIf="state.touched && state.errors?.required">
+            <small>This field is required.</small>
+          </div>
           <!-- <div class="form-group col-md-6">
             <label for="lga">LGA</label>
             <select id="lga" name="lga" class="form-control" formControlName="lga">
@@ -100,9 +134,12 @@
           </div> -->
         </div>
       
-        <button type="submit" class="btn btn-success col-md-12">Sign Up</button>
+        <button type="submit" [disabled]="!RegisterForm.valid" class="btn btn-success col-md-12">Sign Up</button>
         <a routerLink="/sell/login">Already registered ? Log in here</a>
-        <br><br><br><br><br><br><br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
         </form>
         <br>
     </div>

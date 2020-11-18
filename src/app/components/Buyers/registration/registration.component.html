@@ -9,16 +9,24 @@
             <div class="form-group col-md-12">
                 <label for="title">Title</label>
                 <select id="title" name="title" class="form-control" formControlName="title">
-                  <option selected>Select your title</option>
+                  <option selected></option>
                   <option>Mr</option>
                   <option>Mrs</option>
                   <option>Ms</option>
                 </select>
-              </div>
+            </div>
+
+            <div class="alert alert-danger" *ngIf="title.touched && title.errors?.required">
+                <small>This field is required.</small>
+            </div>
             
             <div class="form-group col-md-12">
                 <label for="emailAddress">Email Address</label>
                 <input type="email" class="form-control" name="emailAddress" id="emailAddress" formControlName="emailAddress">
+            </div>
+
+            <div class="alert alert-danger" *ngIf="emailAddress.touched && emailAddress.errors?.required">
+                <small>This field is required.</small>
             </div>
 
             <div class="form-group col-md-12">
@@ -26,9 +34,17 @@
                 <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" formControlName="phoneNumber">
             </div>
 
+            <div class="alert alert-danger" *ngIf="phoneNumber.touched && phoneNumber.errors?.required">
+                <small>This field is required.</small>
+            </div>
+
             <div class="form-group col-md-12">
                 <label for="firstName">First Name</label>
                 <input type="text" class="form-control" id="firstName" name="firstName" formControlName="firstName">
+            </div>
+
+            <div class="alert alert-danger" *ngIf="firstName.touched && firstName.errors?.required">
+                <small>This field is required.</small>
             </div>
 
             <div class="form-group col-md-12">
@@ -36,9 +52,17 @@
                 <input type="text" class="form-control" id="lastName" name="lastName" formControlName="lastName">
             </div>
 
+            <div class="alert alert-danger" *ngIf="lastName.touched && lastName.errors?.required">
+                <small>This field is required.</small>
+            </div>
+
             <div class="form-group col-md-12">
                 <label for="password">Password</label>
                 <input type="text" class="form-control" id="password" name="password" formControlName="password">
+            </div>
+
+            <div class="alert alert-danger" *ngIf="password.touched && password.errors.required">
+                <small>This field is required.</small>
             </div>
 
             <div class="form-group col-md-12">
@@ -46,7 +70,13 @@
                 <input type="text" class="form-control" id="location" name="location" formControlName="location">
             </div>
 
-            <button type="submit" class="btn btn-success col-md-12">Sign Up</button>
+            <div class="alert alert-danger" *ngIf="location.touched && location.errors?.required">
+                <small>This field is required.</small>
+            </div>
+
+            <button type="submit" [disabled]="!registerForm.valid" class="btn btn-success col-md-12">
+                Sign Up
+            </button>
             <a routerLink="/login">Already registered ? Log in here</a>
             <br><br><br><br><br><br><br><br>
         </form>

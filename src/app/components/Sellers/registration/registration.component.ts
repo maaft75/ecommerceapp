@@ -50,7 +50,7 @@ export class RegistrationComponent implements OnInit {
       "description":["",[Validators.required]],
       "emailAddress":["",[Validators.required]],
       "password":["",[Validators.required]],
-      "phoneNumber":["234"+"",[Validators.required]],
+      "phoneNumber":["",[Validators.required]],
       "city":["",[Validators.required]],
       "street":["",[Validators.required]],
       "state":["",[Validators.required]]
@@ -82,9 +82,44 @@ export class RegistrationComponent implements OnInit {
     return this.RegisterForm.get("storeUrl");
   }
 
+  get title(){
+    return this.RegisterForm.get("title");
+  }
+
+  get firstName(){
+    return this.RegisterForm.get("firstName");
+  }
+
+  get lastName(){
+    return this.RegisterForm.get("lastName");
+  }
+
+  get description(){
+    return this.RegisterForm.get("description");
+  }
+
   get emailAddress(){
     return this.RegisterForm.get("emailAddress");
   }
 
+  get password(){
+    return this.RegisterForm.get("password");
+  }
+
+  get phoneNumber(){
+    return this.RegisterForm.get("phoneNumber");
+  }
+
+  get city(){
+    return this.RegisterForm.get("city");
+  }
+
+  get street(){
+    return this.RegisterForm.get("street");
+  }
+
+  get state(){
+    return this.RegisterForm.get("state");
+  }
 }
 
