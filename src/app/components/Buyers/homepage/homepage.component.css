@@ -43,17 +43,30 @@
     margin-bottom: 1px;
 }
 
+.rse{
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .image{
     width: 200px;
     height: 200px;
     margin-bottom: 13px;
     margin-top: 13px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media (max-width : 767px){
     .image{
         width: 170px;
         height: 170px;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .carousel{
