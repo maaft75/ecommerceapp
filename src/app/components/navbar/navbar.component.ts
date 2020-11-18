@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService as AuthSeller} from 'src/app/services/Sellers/auth/auth.service';
+import { ProductsService } from 'src/app/services/Sellers/products/products.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,13 @@ import { AuthService as AuthSeller} from 'src/app/services/Sellers/auth/auth.ser
 export class NavbarComponent implements OnInit {
 
   public show : boolean;
-  constructor(private router : Router, private authSeller : AuthSeller) { }
+  public dropdowncontent : string;
+  public categories : any;
+
+  constructor(
+    private router : Router, 
+    private authSeller : AuthSeller,
+    private products : ProductsService) { }
 
   ngOnInit(): void {
     if(this.authSeller.GetSeller() == null){
@@ -18,6 +25,10 @@ export class NavbarComponent implements OnInit {
     }else{
       this.show = false;
     }
+
+    this.products.GetCategory().subscribe(
+      data => { this.categories = data}
+    )
   }
 
   Logout(){
@@ -28,4 +39,11 @@ export class NavbarComponent implements OnInit {
     //http://localhost:4200/
   }
 
+  showSidebar(){
+    this.dropdowncontent = "display:block;"
+  }
+
+  hideSidebar(){
+    this.dropdowncontent = "display:none;"
+  }
 }

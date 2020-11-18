@@ -1,16 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container col-md-11">
-    <h3> 
-      <a href="/">
-        <span class="navbar-brand mb-0 h1"> 
+    <h3 class="dropdown"> 
+      <a>
+        <span class="navbar-brand mb-0 h1" (click)="showSidebar()" (dblclick)="hideSidebar()"> 
           <span>
             <img src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Foja.png?alt=media&token=ccbf60e3-bdeb-4c31-8781-542226c181db">
           </span>
           Oja 
-        </span> 
+        </span>
+        <div class="dropdown-content" [style]="dropdowncontent">
+          <br/>
+          <div>
+            <div>
+              <h6 style="font-weight: bold;">Categories</h6>
+              <hr/>
+            </div>
+            <div *ngFor="let category of categories">
+              <a> {{ category.name }}</a>
+              <hr/>
+            </div>
+          </div>
+      </div>
       </a>
     </h3>
-    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+    <button  (click)="hideSidebar()" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span>
         <img src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fdropdown.png?alt=media&token=399cd9d3-b528-4736-9874-4da543b73aec">
       </span> 

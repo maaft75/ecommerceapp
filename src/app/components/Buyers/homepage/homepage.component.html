@@ -3,48 +3,39 @@
     <div class="row">
         <div class="col-sm-2 categorybox disappear">
           <br>
-          <p>
-            <span>
-              <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fphones.png?alt=media&token=646b4901-e633-4c71-8ef5-d4e3b719d2dc">
-            </span>
-            &nbsp;Phones
-          </p>
-          <hr/>
-          <p>
-            <span>
-              <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Ffashion.png?alt=media&token=9118e0fe-e7d8-4bd6-937f-d9fdbc5211f6">
-            </span>
-            &nbsp;Fashion
-          </p>
-          <hr/>
-          <p>
-            <span>
-              <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fcomputer.png?alt=media&token=0280780f-879c-44a7-bfae-c98b3164ec6d">
-            </span>
-            &nbsp;Computing
-          </p>
-          <hr/>
-          <p>
-            <span>
-              <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Felectronics.webp?alt=media&token=7e157cd1-230c-476e-91af-3a1dde945799">
-            </span>
-            &nbsp;Electronics
-          </p>
-          <hr/>
-          <p>
-            <span>
-              <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fhome.webp?alt=media&token=9bb3dffe-695d-4496-b9f6-f0d9b58fce61">
-            </span>
-            &nbsp;Home and Office
-          </p>
-          <hr/>
-          <p>
-            <span>
-              <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fothers.png?alt=media&token=7bc8d160-cd1c-4e1d-9fcb-657fe5e22fc7">
-            </span>
-            &nbsp;Other Categories
-          </p> 
-        </div><br>
+          <div class="row">
+            <div class="col-md-2">
+              <span>
+                <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Felectronics.webp?alt=media&token=7e157cd1-230c-476e-91af-3a1dde945799">
+              </span><hr/>
+              <span>
+                <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Ffashion.png?alt=media&token=9118e0fe-e7d8-4bd6-937f-d9fdbc5211f6">
+              </span><hr/>
+              <span>
+                <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fphones.png?alt=media&token=646b4901-e633-4c71-8ef5-d4e3b719d2dc">
+              </span><hr/>
+              <span>
+                <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fhome.webp?alt=media&token=9bb3dffe-695d-4496-b9f6-f0d9b58fce61">
+              </span><hr/>
+              <span>
+                <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fcomputer.png?alt=media&token=0280780f-879c-44a7-bfae-c98b3164ec6d">
+              </span><hr/>
+              <span>
+                <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fothers.png?alt=media&token=7bc8d160-cd1c-4e1d-9fcb-657fe5e22fc7">
+              </span>
+            </div>
+            <div class="col-md-10">
+              <div *ngFor="let category  of categories">
+                <a href="/category/{{ category.name }}"> {{  category.name }}</a>
+                <hr/>
+              </div>
+              <div>
+                <a href="/category/"> Other Categories </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
         <div class="col-sm-7">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -63,17 +54,9 @@
                     <img class="d-block w-100" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fshopping.webp?alt=media&token=20929dec-c427-4ca5-8854-c8a57b996b44" alt="Third slide">
                   </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
               </div>
         </div>
-        <div class="col-sm-2 categorybox">
+        <div class="col-sm-2 categorybox disappear">
           <br>
           <p>
             <span>
@@ -100,7 +83,7 @@
             <span>
               <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fseller.png?alt=media&token=5e7e8342-cf5f-479f-9b8f-1f0662674dd9">
             </span>
-            &nbsp;Sell on Oja <a href="/sell">here</a>
+            &nbsp;Sell on Oja <a href="/sell" class="specia">here</a>
           </p> 
         </div>
     </div>
