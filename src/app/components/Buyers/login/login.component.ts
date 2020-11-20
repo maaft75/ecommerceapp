@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   LoginForm : FormGroup;
+  show : boolean = true;
+  showbtn : boolean = false;
   constructor(private fb : FormBuilder) {
     this.LoginForm = this.fb.group({
       "EmailAddress":["", Validators.required],
@@ -19,7 +21,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   Login(){
-    
+    this.show = false;
+    this.showbtn = true;
   }
 
   get EmailAddress(){
