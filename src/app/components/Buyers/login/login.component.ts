@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/Buyers/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
   show : boolean = true;
   showbtn : boolean = false;
   constructor(
-    private fb : FormBuilder
+    private fb : FormBuilder,
+    private auth : AuthService
     ) {
     this.LoginForm = this.fb.group({
       "EmailAddress":["", Validators.required],
@@ -23,8 +25,17 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   Login(){
-    this.show = false;
     this.showbtn = true;
+    this.show = false;
+    this.auth.login(this.LoginForm.value).subscribe(
+      (data) => {
+        this.auth.saveToken(data.token);
+        this.auth.saveBuyer(JSON.stringify(data));
+        window.location.href = "https://oja.netlify.app";
+        //http://localhost:4200/
+        console.log(data);
+      }
+    )
   }
 
   get EmailAddress(){

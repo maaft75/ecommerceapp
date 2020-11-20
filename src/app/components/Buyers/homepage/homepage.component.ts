@@ -27,27 +27,17 @@ export class HomepageComponent implements OnInit {
 
     this.productService.GetProducts().subscribe(
       (data) => {
-        this.fashions = data.filter(x => x.category.name == "Fashion").slice(0,4);
-        console.log(this.fashions)
+        this.fashions = data.filter(x => x.category.name == "Fashion").slice(0,6);
       })
 
     this.productService.GetProducts().subscribe(
       (data) => {
-        this.phones = data.filter(x => x.category.name == "Phones").slice(0,4);
-        console.log(this.phones)
+        this.phones = data.filter(x => x.category.name == "Phones").slice(0,6);
       })
 
     this.productService.GetProducts().subscribe(
       (data) => {
-        this.electronics = data.filter(x => x.category.name == "Electronics").slice(0,4);
-        console.log(this.electronics)
+        this.electronics = data.filter(x => x.category.name == "Electronics").slice(0,6);
       })
   }
-
-
-  /*GetMenProducts(){
-    this.getproducts.GetProduct().subscribe(
-      (data) => { this.menProducts = data.filter( x => x.category.name == "Men's Fashion" ).reverse().slice(0,4) } 
-    )
-  } */
 }
