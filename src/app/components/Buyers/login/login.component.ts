@@ -11,7 +11,9 @@ export class LoginComponent implements OnInit {
   LoginForm : FormGroup;
   show : boolean = true;
   showbtn : boolean = false;
-  constructor(private fb : FormBuilder) {
+  constructor(
+    private fb : FormBuilder
+    ) {
     this.LoginForm = this.fb.group({
       "EmailAddress":["", Validators.required],
       "Password":["",Validators.required] 

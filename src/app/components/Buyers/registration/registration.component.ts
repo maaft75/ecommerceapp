@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/Buyers/auth/auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -8,8 +10,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegistrationComponent implements OnInit {
 
-  registerForm : FormGroup;
-  constructor(private fb : FormBuilder) { 
+  public registerForm : FormGroup;
+
+  constructor(
+    private fb : FormBuilder,
+    private auth : AuthService,
+    private router : Router) { 
     this.registerForm = this.fb.group({
       "title": ["",Validators.required],
       "emailAddress": ["",Validators.required],
@@ -26,6 +32,13 @@ export class RegistrationComponent implements OnInit {
 
   Register = () => { 
     console.log(this.registerForm.value);
+    this.auth.register(this.registerForm.value).subscribe(
+      data => 
+      { 
+        alert(`Welcome to Oja, ${data.firstName}!`);
+        window.location.href = "https://oja.netlify.app/login"
+      }
+    )
   }
 
   get title(){
