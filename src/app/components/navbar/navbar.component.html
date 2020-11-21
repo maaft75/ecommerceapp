@@ -1,38 +1,54 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container col-md-11">
-    <h3 class="dropdown"> 
+  <div class="container col-md-12">
+    <h3 class="dropdown" (click)="toggleSidebar()">
       <a>
-        <span class="navbar-brand mb-0 h1" (click)="showSidebar()" (dblclick)="hideSidebar()"> 
+        <img src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2FTogglebar.png?alt=media&token=4768e0cb-cddb-4a71-bde8-e2ce175d529c"/>
+      </a> &nbsp;&nbsp;
+      <div class="dropdown-content" *ngIf="showDropdownBtn">
+        <br/>
+        <div>
+          <div>
+            <h6 style="font-weight: bold;">Categories</h6>
+            <hr/>
+          </div>
+          <div *ngFor="let category of categories">
+            <a href="/category/{{ category.name }}"> {{ category.name }}</a>
+            <hr/>
+          </div>
+        </div>
+      </div>
+    </h3>
+    
+    <h3> 
+      <a href="/sell">
+        <span class="navbar-brand mb-0 h1"> 
+          Oja 
           <span>
             <img src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Foja.png?alt=media&token=ccbf60e3-bdeb-4c31-8781-542226c181db">
-          </span>
-          Oja 
+          </span> 
         </span>
-        <div class="dropdown-content" [style]="dropdowncontent">
-          <br/>
-          <div>
-            <div>
-              <h6 style="font-weight: bold;">Categories</h6>
-              <hr/>
-            </div>
-            <div *ngFor="let category of categories">
-              <a href="/category/{{ category.name }}"> {{ category.name }}</a>
-              <hr/>
-            </div>
-          </div>
-      </div>
       </a>
     </h3>
 
-    <button  (click)="hideSidebar()" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span>
         <img src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fdropdown.png?alt=media&token=399cd9d3-b528-4736-9874-4da543b73aec">
       </span> 
     </button>
 
+    <form class="form-inline my- my-lg-0 col-md-8">
+      <input type="search" class="form-control mr-sm-2 col-md-9" placeholder="Search products" aria-label="Search" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">
+          Search
+          <img class="search" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fsearch.png?alt=media&token=0ccf497e-cdf2-4d3f-a775-d9ebed66fbad">
+        </button>
+      </div>
+    </form>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item" *ngIf="!show">
+        <li class="nav-item" *ngIf="show">
           <span></span>
           <a class="btn btn-light nav-buttons" href="/profile"> 
             <span>
@@ -41,7 +57,7 @@
             Profile
           </a>&nbsp; 
         </li>
-        <li class="nav-item" *ngIf="!show">
+        <li class="nav-item" *ngIf="show">
           <span></span>
           <a (click)="Logout()" class="btn btn-light nav-buttons"> 
             <span>
@@ -50,7 +66,7 @@
             Logout
           </a>&nbsp; 
         </li>
-        <li class="nav-item dropdown" *ngIf="show">
+        <li class="nav-item dropdown" *ngIf="!show">
           <a class="btn btn-light nav-buttons dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span>
               <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Flogin.png?alt=media&token=be6ca1c2-183a-42cf-a671-18da674228fc">
@@ -79,15 +95,7 @@
         </li>&nbsp;
       </ul>
 
-      <form class="form-inline my- my-lg-0 col-md-8">
-        <input type="search" class="form-control mr-sm-2 col-md-9" placeholder="Search products" aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">
-            Search
-            <img class="search" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fsearch.png?alt=media&token=0ccf497e-cdf2-4d3f-a775-d9ebed66fbad">
-          </button>
-        </div>
-      </form>
+      
     </div>
   </div>
 </nav>

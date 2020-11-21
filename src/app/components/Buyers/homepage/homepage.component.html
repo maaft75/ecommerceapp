@@ -234,6 +234,7 @@
           <br>
             <a href="/products/{{phone.id}}"><img src="{{ phone.imageUrl }}" class="image"> 
             <div class="price">
+              <hr/>
               <h6>{{ phone.name | slice:0:15 }}...</h6>
               <h6>{{ phone.price |currency:"NGN":"#" }}</h6>
             </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService as AuthBuyer } from 'src/app/services/Buyers/auth/auth.service';
 import { AuthService as AuthSeller} from 'src/app/services/Sellers/auth/auth.service';
 import { ProductsService } from 'src/app/services/Sellers/products/products.service';
 
@@ -11,39 +12,64 @@ import { ProductsService } from 'src/app/services/Sellers/products/products.serv
 export class NavbarComponent implements OnInit {
 
   public show : boolean;
-  public dropdowncontent : string;
   public categories : any;
+  public dropdowncontent : string;
+  public isBuyerLoggedIn : boolean;
+  public isSellerLoggedIn : boolean;
+  public showDropdownBtn : boolean = false;
 
-  constructor(
-    private router : Router, 
+  constructor( 
     private authSeller : AuthSeller,
+    private authBuyer : AuthBuyer,
     private products : ProductsService) { }
 
   ngOnInit(): void {
-    if(this.authSeller.GetSeller() == null){
-      this.show = true;
-    }else{
-      this.show = false;
-    }
-
     this.products.GetCategory().subscribe(
       data => { this.categories = data}
     )
+
+    this.checkIfBuyerIsLoggedIn();
+    this.checkIfSellerIsLoggedIn();
+    this.checkIfAnyLoggedIn();
   }
 
   Logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    window.location.href = "https://oja.netlify.app/"
-    //https://oja.netlify.app/
+    window.location.href = "https://oja.netlify.app/";
     //http://localhost:4200/
   }
 
-  showSidebar(){
-    this.dropdowncontent = "display:block;"
+  checkIfBuyerIsLoggedIn(){
+    let buyer = this.authBuyer.getBuyer();
+    if(buyer != null){
+      this.isBuyerLoggedIn = true;
+    }else{
+      this.isBuyerLoggedIn = false;
+    }
   }
 
-  hideSidebar(){
-    this.dropdowncontent = "display:none;"
+  checkIfSellerIsLoggedIn(){
+    let seller = this.authSeller.GetSeller();
+    if(seller != null){
+      this.isSellerLoggedIn = true;
+    }else{
+      this.isSellerLoggedIn = false;
+    }
   }
+
+  checkIfAnyLoggedIn(){
+    let seller = this.authSeller.GetSeller();
+    let buyer = this.authBuyer.getBuyer();
+    if(seller != null || buyer != null){
+      this.show = true;
+    }else{
+      this.show = false;
+    }
+  }
+
+  toggleSidebar(){
+    this.showDropdownBtn = !this.showDropdownBtn;
+  }
+
 }
