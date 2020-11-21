@@ -28,4 +28,8 @@ export class DashboardComponent implements OnInit {
       })
   }
 
+  Delete(id){
+
+  }
+
 }

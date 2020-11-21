@@ -7,21 +7,27 @@
       <div class="dropdown-content" *ngIf="showDropdownBtn">
         <br/>
         <div>
-            <a href="/profile" *ngIf="show"> 
-              <h6>Profile</h6><hr/>
-            </a>
-            <a href="orders" *ngIf="isBuyerLoggedIn"> 
-              <h6>Orders </h6><hr/>
-            </a>
-            <a href="sell/dashboard" *ngIf="isSellerLoggedIn"> 
-             <h6> Dashboard </h6><hr/>
-            </a>
-            <a href="sell/Requests" *ngIf="isSellerLoggedIn"> 
-              <h6> Requests </h6><hr/>
-             </a>
-            <a href="/categories">
-              <h6> All Categories</h6>
-            </a>
+          <a href="orders" *ngIf="isBuyerLoggedIn"> 
+            <h6 *ngIf="isBuyerLoggedIn">Orders </h6><hr/>
+          </a>
+          <a href="/sell/dashboard" *ngIf="isSellerLoggedIn"> 
+            <h6> Analytics </h6><hr/>
+          </a>
+          <a href="/profile" *ngIf="show"> 
+            <h6>Profile</h6><hr/>
+          </a>
+          <a href="sell/Requests" *ngIf="isSellerLoggedIn"> 
+            <h6> Requests </h6><hr/>
+          </a>  
+          <a href="/sell/dashboard" *ngIf="isSellerLoggedIn"> 
+            <h6> Dashboard </h6><hr/>
+          </a>
+          <a href="/addproduct" *ngIf="isSellerLoggedIn"> 
+            <h6> Add Product </h6><hr/>
+          </a>
+          <a href="/categories">
+            <h6> All Categories</h6>
+          </a>
         </div>
       </div>
     </h3>

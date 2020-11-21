@@ -1,37 +1,29 @@
 <div class="container col-sm-12">
     <br>
-    <div class="container col-sm-12 add">
-        <a href="/addproduct" class="btn btn-success btn-sm addbutton">Create Product</a>
-    </div>
     <div class="container-fluid col-md-12">
-        <div class="row">
-            <div class="col-sm-2 sidebar">
-                <ul>
-                    <li><a href="/addproduct">Create Product</a></li>
-                    <hr>
-                    <li><a href="/addproduct">Profile</a></li>
-                    <hr>
-                    <li><a href="/addproduct">Logout</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-10">
-                <div class="row">
-                    <div class="col-sm-4 mainbox" *ngFor="let sellerProduct of sellerProducts">
-                        <div class="card text-center cardbox">
-                            <div class="card-header">
-                              {{ sellerProduct.name }}
-                            </div>
-                            <div class="card-body">
-                              <h6 class="card-title">Quantity: {{ sellerProduct.quantity }}</h6>
-                              <h6>Price: #{{ sellerProduct.price }}</h6>
-                            </div>
-                            <div class="card-footer">
-                                <a href="product/{{sellerProduct.seller.storeName}}/{{sellerProduct.id}}" class="btn btn-light btn-sm">Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">S/N</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Quantity Available</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let sellerProduct of sellerProducts">
+                <th scope="row">{{ sellerProduct.id }}</th>
+                <td>{{ sellerProduct.name }}</td>
+                <td>{{ sellerProduct.quantity }}</td>
+                <td>{{ sellerProduct.price | currency:"NGN":"#"}}</td>
+                <td>
+                    <a href="edit/product/{{  sellerProduct.id }}" > Edit </a> | 
+                    <a href="details/product/{{  sellerProduct.id }}" >Details</a> | 
+                    <a (click)="Delete(sellerProduct.id)" >Delete</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
     </div>
 </div>
