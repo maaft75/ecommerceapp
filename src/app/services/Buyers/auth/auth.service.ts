@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Login } from 'src/app/Interfaces/Login';
 import { environment } from 'src/environments/environment';
 
@@ -19,7 +20,7 @@ export class AuthService {
   }
 
   login(data) : Observable<any>{
-    return this.http.post<Login>(this.loginUrl, data)
+    return this.http.post<Login>(this.loginUrl, data);
   }
 
   saveToken(token){
@@ -37,4 +38,6 @@ export class AuthService {
   getBuyer(){
     return localStorage.getItem('buyer');
   }
+
+
 }

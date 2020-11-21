@@ -24,7 +24,6 @@ export class DashboardComponent implements OnInit {
       (data) => {
         console.log(data);
         this.sellerProducts = data.filter( x => x.seller.id == this.seller.id);
-        console.log(this.sellerProducts);
       })
   }
 

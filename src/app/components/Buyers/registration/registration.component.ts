@@ -33,13 +33,18 @@ export class RegistrationComponent implements OnInit {
   Register = () => { 
     console.log(this.registerForm.value);
     this.auth.register(this.registerForm.value).subscribe(
-      data => 
+      (data) => 
       { 
         alert(`Welcome to Oja, ${data.firstName}!`);
         window.location.href = "https://oja.netlify.app/login"
-      }
-    )
-  }
+      },
+      (error) => {
+          alert(`${Object.values(error["error"])[0]}`);
+          if(error){
+            window.location.href = "https://oja.netlify.app/register"
+          }
+      })
+    }
 
   get title(){
     return this.registerForm.get("title");

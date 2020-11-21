@@ -29,13 +29,16 @@ export class LoginComponent implements OnInit {
     this.show = false;
     this.auth.login(this.LoginForm.value).subscribe(
       (data) => {
+        localStorage.clear();
         this.auth.saveToken(data.token);
         this.auth.saveBuyer(JSON.stringify(data));
-        window.location.href = "https://oja.netlify.app";
-        //http://localhost:4200/
+        window.location.href = "https://oja.netlify.app"; //http://localhost:4200/
         console.log(data);
-      }
-    )
+      },
+      (error) => {
+        alert(`${Object.values(error["error"])[0]}, Please ensure you are entering the correct login credentials.`);
+        if(error){ window.location.href = "https://oja.netlify.app/login" }
+    })
   }
 
   get EmailAddress(){

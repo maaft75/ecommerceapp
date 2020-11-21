@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
   Login = () => {
     this.auth.Login(this.LoginForm.value).subscribe(
       data => {
+        localStorage.clear();
         this.auth.SaveSeller(data);
         this.auth.SaveToken(data.token);
         window.location.href = "https://oja.netlify.app/sell/dashboard";
