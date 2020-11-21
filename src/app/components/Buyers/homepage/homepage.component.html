@@ -169,8 +169,8 @@
           <br>
             <a href="/products/{{fashion.id}}"><img src="{{ fashion.imageUrl }}" class="image"> 
             <div class="price">
-              <h6>{{ fashion.name }}</h6>
-              <h6>#{{ fashion.price }}</h6>
+              <h6>{{ fashion.name | slice:0:15}}...</h6>
+              <h6>{{ fashion.price |currency:"NGN":"#" }}</h6>
             </div>
           <br></a>
         </div>
@@ -201,8 +201,8 @@
           <br>
             <a href="/products/{{electronic.id}}"><img src="{{ electronic.imageUrl }}" class="image"> 
             <div class="price">
-              <h6>{{ electronic.name }}</h6>
-              <h6>#{{ electronic.price }}</h6>
+              <h6>{{ electronic.name | slice:0:15 }}...</h6>
+              <h6>{{ electronic.price |currency:"NGN":"#" }}</h6>
             </div>
           <br></a>
         </div>
@@ -234,8 +234,8 @@
           <br>
             <a href="/products/{{phone.id}}"><img src="{{ phone.imageUrl }}" class="image"> 
             <div class="price">
-              <h6>{{ phone.name }}</h6>
-              <h6>#{{ phone.price }}</h6>
+              <h6>{{ phone.name | slice:0:15 }}...</h6>
+              <h6>{{ phone.price |currency:"NGN":"#" }}</h6>
             </div>
           <br></a>
         </div>
