@@ -27,7 +27,7 @@ export class HomepageComponent implements OnInit {
 
     this.productService.GetProducts().subscribe(
       (data) => {
-        this.fashions = data.filter(x => x.category.name == "Fashion").slice(0,6);
+        this.fashions = data.filter(x => x.category.name == "Fashion").slice(0,6).reverse();
       })
 
     this.productService.GetProducts().subscribe(

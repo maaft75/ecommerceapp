@@ -1,42 +1,53 @@
 <div class="container-fluid">
+  <div>
     <br/>
-    <div class="row">
+    <div class="row carouselbox">
         <div class="col-sm-2 categorybox disappear">
           <br>
-          <div class="row">
-            <div class="col-md-2">
-              <span>
-                <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Felectronics.webp?alt=media&token=7e157cd1-230c-476e-91af-3a1dde945799">
-              </span><hr/>
-              <span>
-                <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Ffashion.png?alt=media&token=9118e0fe-e7d8-4bd6-937f-d9fdbc5211f6">
-              </span><hr/>
-              <span>
-                <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fphones.png?alt=media&token=646b4901-e633-4c71-8ef5-d4e3b719d2dc">
-              </span><hr/>
-              <span>
-                <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fhome.webp?alt=media&token=9bb3dffe-695d-4496-b9f6-f0d9b58fce61">
-              </span><hr/>
-              <span>
-                <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fcomputer.png?alt=media&token=0280780f-879c-44a7-bfae-c98b3164ec6d">
-              </span><hr/>
-              <span>
-                <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fothers.png?alt=media&token=7bc8d160-cd1c-4e1d-9fcb-657fe5e22fc7">
-              </span>
-            </div>
-            <div class="col-md-10">
-              <div *ngFor="let category  of categories">
-                <a href="/category/{{ category.name }}"> {{  category.name }}</a>
-                <hr/>
-              </div>
-              <div>
-                <a href="/category/"> Other Categories </a>
-              </div>
-            </div>
-          </div>
+          <p>
+            <span>
+              <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Felectronics.webp?alt=media&token=7e157cd1-230c-476e-91af-3a1dde945799">
+            </span>
+            &nbsp;Electronics
+          </p>
+          <hr/>
+          <p>
+            <span>
+              <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Ffashion.png?alt=media&token=9118e0fe-e7d8-4bd6-937f-d9fdbc5211f6">
+            </span>
+            &nbsp;Fashion
+          </p>
+          <hr/>
+          <p>
+            <span>
+              <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fphones.png?alt=media&token=646b4901-e633-4c71-8ef5-d4e3b719d2dc">
+            </span>
+            &nbsp;Phones
+          </p>
+          <hr/>
+          <p>
+            <span>
+              <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fhome.webp?alt=media&token=9bb3dffe-695d-4496-b9f6-f0d9b58fce61">
+            </span>
+            &nbsp;Home & Office
+          </p>
+          <hr/>
+          <p>
+            <span>
+              <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fcomputer.png?alt=media&token=0280780f-879c-44a7-bfae-c98b3164ec6d">
+            </span>
+            &nbsp;Computer
+          </p>
+          <hr/>
+          <p>
+            <span>
+              <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fothers.png?alt=media&token=7bc8d160-cd1c-4e1d-9fcb-657fe5e22fc7">
+            </span>
+            &nbsp;Other Categories
+          </p>
         </div>
         <br>
-        <div class="col-sm-7">
+        <div class="col-sm-6">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -84,64 +95,79 @@
               <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fseller.png?alt=media&token=5e7e8342-cf5f-479f-9b8f-1f0662674dd9">
             </span>
             &nbsp;Sell on Oja <a href="/sell" class="special">here</a>
-          </p> 
         </div>
     </div>
     <br/>
+  </div>
 
-    <div class="row">
-      <div class="col-md-5">
+  <div>
+    <div class="row carouselbox">
+      <div class="col-md-4">
         <hr/>
       </div>
       <div class="col-md-2">
         <h5 style="text-align: center;"> <b> Fashion </b> </h5>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-4">
         <hr/>
       </div>
     </div>
-    <div class="row box">
-      <div class="imgdiv" *ngFor="let fashion of fashions">
-        <img src="{{ fashion.imageUrl }}" class="image">
+    <div class="container">
+      <div class="row box">
+        <div class="imgdiv" *ngFor="let fashion of fashions">
+          <img src="{{ fashion.imageUrl }}" class="image">
+        </div>
       </div>
     </div>
-    <br/>
+  </div>
+  
+  <br/>
 
-    <div class="row">
-      <div class="col-md-5">
+  <div>
+    <div class="row carouselbox">
+      <div class="col-md-4">
         <hr/>
       </div>
       <div class="col-md-2">
         <h5 style="text-align: center;"> <b> Electronics </b> </h5>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-4">
         <hr/>
       </div>
     </div>
-    <div class="row box">
-      <div class="imgdiv" *ngFor="let electronic of electronics">
-        <img src="{{ electronic.imageUrl }}" class="image">
+    <div class="container">
+      <div class="row box">
+        <div class="imgdiv" *ngFor="let electronic of electronics">
+          <img src="{{ electronic.imageUrl }}" class="image">
+        </div>
       </div>
     </div>
-    <br/>
+  </div>
+  
+  <br/>
 
-    <div class="row">
-      <div class="col-md-5">
+  <div>
+    <div class="row carouselbox">
+      <div class="col-md-4">
         <hr/>
       </div>
       <div class="col-md-2">
         <h5 style="text-align: center;"> <b> Phones </b> </h5>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-4">
         <hr/>
       </div>
     </div>
-    <div class="row box">
-      <div class="imgdiv" *ngFor="let phone of phones">
-        <img src="{{ phone.imageUrl }}" class="image">
+    <div class="container">
+      <div class="row box">
+        <div class="imgdiv" *ngFor="let phone of phones">
+          <img src="{{ phone.imageUrl }}" class="image">
+        </div>
       </div>
     </div>
-    <br/>
-    <br/>
-    <br/>
+  </div>
+
+  <br/>
+  <br/>
+  <br/>
 </div>
