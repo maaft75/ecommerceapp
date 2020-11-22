@@ -28,6 +28,9 @@ import { LoginComponent as SellersLogin} from './components/Sellers/login/login.
 import { RegistrationComponent as SellersRegister } from './components/Sellers/registration/registration.component';
 import { DashboardComponent as SellersDashboard } from './components/Sellers/dashboard/dashboard.component';
 import { AddproductComponent } from './components/Sellers/addproduct/addproduct.component';
+import { CategoryComponent } from './components/category/category.component';
+import { CategoriesComponent } from './components/categories/categories.component';
+import { CategoryplaceholderComponent } from './components/categoryplaceholder/categoryplaceholder.component';
 
 
 @NgModule({
@@ -40,7 +43,10 @@ import { AddproductComponent } from './components/Sellers/addproduct/addproduct.
     HomepageComponent,
     RegistrationComponent,
     SellersDashboard,
-    AddproductComponent
+    AddproductComponent,
+    CategoryComponent,
+    CategoriesComponent,
+    CategoryplaceholderComponent
   ],
   imports: [
     BrowserModule,

@@ -18,8 +18,8 @@
                 <td>{{ sellerProduct.quantity }}</td>
                 <td>{{ sellerProduct.price | currency:"NGN":"#"}}</td>
                 <td>
-                    <a href="edit/product/{{  sellerProduct.id }}" > Edit </a> | 
-                    <a href="details/product/{{  sellerProduct.id }}" >Details</a> | 
+                    <a routerLink="edit/product/{{  sellerProduct.id }}" > Edit </a> | 
+                    <a routerLink="details/product/{{  sellerProduct.id }}" >Details</a> | 
                     <a (click)="Delete(sellerProduct.id)" >Delete</a>
                 </td>
               </tr>

@@ -32,11 +32,11 @@ export class LoginComponent implements OnInit {
         localStorage.clear();
         this.auth.saveToken(data.token);
         this.auth.saveBuyer(JSON.stringify(data));
-        window.location.href = "https://oja.netlify.app"; //http://localhost:4200/
-        console.log(data);
+        window.location.href = "https://oja.netlify.app";
+        //http://localhost:4200/
       },
       (error) => {
-        alert(`${Object.values(error["error"])[0]}, Please ensure you are entering the correct login credentials.`);
+        alert(`${error["error"]["error"]}, Please ensure you are entering the correct login credentials.`);
         if(error){ window.location.href = "https://oja.netlify.app/login" }
     })
   }
@@ -48,6 +48,5 @@ export class LoginComponent implements OnInit {
   get Password(){
     return this.LoginForm.get("Password");
   }
-  
 }
 

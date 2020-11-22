@@ -10,16 +10,24 @@ import { DashboardComponent as SellersDashboard } from '../components/Sellers/da
 import { RegistrationComponent as BuyersRegister} from '../components/Buyers/registration/registration.component';
 import { RegistrationComponent as SellersRegister } from '../components/Sellers/registration/registration.component';
 import { AddproductComponent } from '../components/Sellers/addproduct/addproduct.component'; 
+import { CategoryComponent } from '../components/category/category.component';
+import { CategoryplaceholderComponent } from '../components/categoryplaceholder/categoryplaceholder.component';
+import { CategoriesComponent } from '../components/categories/categories.component';
 
 export const appRoutes : Routes = [
-  {path:'', component: BuyersHomePage},
+  {path:'home', component: BuyersHomePage},
   {path:'login', component: BuyersLogin},
   {path:'register', component: BuyersRegister},
   {path:'sell', component: SellersHomePage},
   {path:'sell/register', component: SellersRegister},
   {path:'sell/login', component: SellersLogin},
+  {path:'categories', component: CategoriesComponent, children:[
+    {path:':category', component : CategoryComponent},
+    {path:'', component: CategoryplaceholderComponent}
+  ]},
   {path:'sell/dashboard', component:SellersDashboard, canActivate : [AuthGuard] },
-  {path:'addproduct', component:AddproductComponent, canActivate : [AuthGuard] }
+  {path:'addproduct', component:AddproductComponent, canActivate : [AuthGuard] },
+  {path:'**', redirectTo:'/home', pathMatch:'full'}
 ]
 
 @NgModule({

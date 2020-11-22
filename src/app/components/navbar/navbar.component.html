@@ -7,25 +7,25 @@
       <div class="dropdown-content" *ngIf="showDropdownBtn">
         <br/>
         <div>
-          <a href="orders" *ngIf="isBuyerLoggedIn"> 
+          <a routerLink="orders" *ngIf="isBuyerLoggedIn"> 
             <h6 *ngIf="isBuyerLoggedIn">Orders </h6><hr/>
           </a>
-          <a href="/sell/dashboard" *ngIf="isSellerLoggedIn"> 
+          <a routerLink="/sell/dashboard" *ngIf="isSellerLoggedIn"> 
             <h6> Analytics </h6><hr/>
           </a>
-          <a href="/profile" *ngIf="show"> 
+          <a routerLink="/profile" *ngIf="show"> 
             <h6>Profile</h6><hr/>
           </a>
-          <a href="sell/Requests" *ngIf="isSellerLoggedIn"> 
+          <a routerLink="sell/Requests" *ngIf="isSellerLoggedIn"> 
             <h6> Requests </h6><hr/>
           </a>  
-          <a href="/sell/dashboard" *ngIf="isSellerLoggedIn"> 
+          <a routerLink="/sell/dashboard" *ngIf="isSellerLoggedIn"> 
             <h6> Dashboard </h6><hr/>
           </a>
-          <a href="/addproduct" *ngIf="isSellerLoggedIn"> 
+          <a routerLink="/addproduct" *ngIf="isSellerLoggedIn"> 
             <h6> Add Product </h6><hr/>
           </a>
-          <a href="/categories">
+          <a routerLink="/categories">
             <h6> All Categories</h6>
           </a>
         </div>
@@ -33,7 +33,7 @@
     </h3>
     
     <h3> 
-      <a href="/">
+      <a routerLink="/">
         <span class="navbar-brand mb-0 h1"> 
           Oja 
           <span>
@@ -72,7 +72,7 @@
           </a>&nbsp; 
         </li>
         <li class="nav-item dropdown" *ngIf="!show">
-          <a class="btn btn-light nav-buttons dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="btn btn-light nav-buttons dropdown-toggle" routerLink="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span>
               <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Flogin.png?alt=media&token=be6ca1c2-183a-42cf-a671-18da674228fc">
             </span>
@@ -80,7 +80,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <div class="col-md-12">
-              <a href="/login" class="btn btn-primary dropdown-item" type="button"> 
+              <a routerLink="/login" class="btn btn-primary dropdown-item" type="button"> 
                 Login 
               </a>
             </div>
@@ -88,7 +88,7 @@
               <div class="dropdown-divider"></div>
             </div>
             <div class="col-md-12">
-              <a href="/register" class="btn btn-primary dropdown-item" type="button"> Sign Up </a>
+              <a routerLink="/register" class="btn btn-primary dropdown-item" type="button"> Sign Up </a>
             </div>
             <div class="col-md-12">
               <div class="dropdown-divider"></div>
