@@ -66,8 +66,13 @@ export class RegistrationComponent implements OnInit {
         alert(`Registration successful!`);
         window.location.href = "https://oja.netlify.app/sell/login";
         //http://localhost:4200/login
-      }
-    )
+      },
+      (error) => {
+          alert(`${Object.values(error["error"])[0]}`);
+          if(error){
+            window.location.href = "https://oja.netlify.app/register"
+          }
+      })
   }
 
   GetLga = (value) => {

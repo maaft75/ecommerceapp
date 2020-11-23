@@ -134,7 +134,21 @@
           </div> -->
         </div>
       
-        <button type="submit" [disabled]="!RegisterForm.valid" class="btn btn-success col-md-12">Sign Up</button>
+        <button type="submit" [disabled]="!RegisterForm.valid" class="btn btn-dark col-md-12" data-toggle="modal" data-target=".bd-example-modal-lg">
+          <h6> Sign Up </h6>
+        </button>
+
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content center">
+                    <br><br><br>
+                    <h4>Please wait while we complete your registration.</h4>
+                    <hr/>
+                    <img src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fae84325701f6d97ac4ad7e7951ac9063_w200.webp?alt=media&token=7eb12a30-3899-458a-8c5c-587c49e0b884">
+                    <br><br><br>
+                </div>
+            </div>
+        </div>
         <a routerLink="/sell/login">Already registered ? Log in here</a>
         <br><br>
         <br><br>

@@ -30,8 +30,7 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  Register = () => { 
-    console.log(this.registerForm.value);
+  Register = () => {
     this.auth.register(this.registerForm.value).subscribe(
       (data) => 
       { 
