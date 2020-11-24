@@ -13,6 +13,7 @@ import { AddproductComponent } from '../components/Sellers/addproduct/addproduct
 import { CategoryComponent } from '../components/category/category.component';
 import { CategoryplaceholderComponent } from '../components/categoryplaceholder/categoryplaceholder.component';
 import { CategoriesComponent } from '../components/categories/categories.component';
+import { SearchComponent } from '../components/search/search.component';
 
 export const appRoutes : Routes = [
   {path:'home', component: BuyersHomePage},
@@ -27,6 +28,7 @@ export const appRoutes : Routes = [
   ]},
   {path:'sell/dashboard', component:SellersDashboard, canActivate : [AuthGuard] },
   {path:'addproduct', component:AddproductComponent, canActivate : [AuthGuard] },
+  {path: 'searchResults', component:SearchComponent},
   {path:'**', redirectTo:'/home', pathMatch:'full'}
 ]
 

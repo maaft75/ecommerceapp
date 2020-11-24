@@ -25,28 +25,32 @@ import { LoginComponent } from './components/Buyers/login/login.component';
 import { RegistrationComponent } from './components/Buyers/registration/registration.component';
 
 import { LoginComponent as SellersLogin} from './components/Sellers/login/login.component';
+import { HomepageComponent as SellersHomePage} from './components/Sellers/homepage/homepage.component';
 import { RegistrationComponent as SellersRegister } from './components/Sellers/registration/registration.component';
 import { DashboardComponent as SellersDashboard } from './components/Sellers/dashboard/dashboard.component';
 import { AddproductComponent } from './components/Sellers/addproduct/addproduct.component';
 import { CategoryComponent } from './components/category/category.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CategoryplaceholderComponent } from './components/categoryplaceholder/categoryplaceholder.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [ 
     AppComponent,
     LoginComponent,
     NavbarComponent,
     SellersRegister,
     SellersLogin,
+    SellersHomePage,
     HomepageComponent,
     RegistrationComponent,
     SellersDashboard,
     AddproductComponent,
     CategoryComponent,
     CategoriesComponent,
-    CategoryplaceholderComponent
+    CategoryplaceholderComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

@@ -51,8 +51,8 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       
-      <form class="form-inline my- my-lg-0 col-md-8">
-        <input type="search" class="form-control mr-sm-2 col-md-9" placeholder="Search products" aria-label="Search" aria-describedby="basic-addon2">
+      <form class="form-inline my- my-lg-0 col-md-8" [formGroup]="searchForm" (ngSubmit)="search()">
+        <input type="search" class="form-control mr-sm-2 col-md-9" placeholder="Search products" formControlName="searchInput"/>
         <div class="input-group-append">
           <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">
             Search
@@ -62,7 +62,16 @@
       </form>
 
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item" *ngIf="show">
+        <li class="nav-item" *ngIf="isBuyerLoggedIn">
+          <span></span>
+          <a (click)="Logout()" class="btn btn-light nav-buttons"> 
+            <span>
+              <img class="brand" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fseller.png?alt=media&token=5e7e8342-cf5f-479f-9b8f-1f0662674dd9">
+            </span>
+            Logout
+          </a>&nbsp; 
+        </li>
+        <li class="nav-item" *ngIf="isSellerLoggedIn">
           <span></span>
           <a (click)="Logout()" class="btn btn-light nav-buttons"> 
             <span>
@@ -98,9 +107,7 @@
             </div>
           </div>
         </li>&nbsp;
-      </ul>
-
-      
+      </ul>  
     </div>
   </div>
 </nav>

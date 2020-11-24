@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Product } from 'src/app/Interfaces/Product';
 import { AuthService as AuthBuyer } from 'src/app/services/Buyers/auth/auth.service';
+import { SearchService } from 'src/app/services/search/search.service';
 import { AuthService as AuthSeller} from 'src/app/services/Sellers/auth/auth.service';
 import { ProductsService } from 'src/app/services/Sellers/products/products.service';
 
@@ -12,33 +15,56 @@ import { ProductsService } from 'src/app/services/Sellers/products/products.serv
 export class NavbarComponent implements OnInit {
 
   public show : boolean;
+  searchForm : FormGroup;
   public categories : any;
+  public searchInput : any;
+  public product : Array<Product>;
+  public searchResult : Array<Product>;
   public dropdowncontent : string;
   public isBuyerLoggedIn : boolean;
   public isSellerLoggedIn : boolean;
   public showDropdownBtn : boolean = false;
 
-  constructor( 
-    private authSeller : AuthSeller,
+  constructor(
+    private fb : FormBuilder,
+    private router : Router,
     private authBuyer : AuthBuyer,
-    private products : ProductsService) { }
+    private authSeller : AuthSeller,
+    private products : ProductsService,
+    private searchService : SearchService) { 
+      this.searchForm = this.fb.group({
+        "searchInput" : [""]
+      })
+    }
 
   ngOnInit(): void {
-    this.products.GetCategory().subscribe(
-      data => { this.categories = data}
-    )
-
     this.checkIfBuyerIsLoggedIn();
     this.checkIfSellerIsLoggedIn();
     this.checkIfAnyLoggedIn();
+    this.products.GetCategory().subscribe(
+      data => { this.categories = data}
+    );
+  }
+  
+  search(){
+    this.searchInput = Object.values(this.searchForm.value)[0];
+    this.products.GetProducts().subscribe(
+      (data) => { 
+        this.product = data;
+        //console.log(this.product.filter(x => {return x.name == Object.values(this.searchForm.value)[0] }));
+        this.searchResult = this.product.filter(x => { return x.name.includes( this.searchInput); });
+        //console.log(this.searchResult);
+        this.searchService.sharedData = this.searchResult;
+        this.searchForm.reset();
+        this.router.navigate(["searchResults"]);
+    })
   }
 
   Logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     localStorage.removeItem('buyer');
-    window.location.href = "https://oja.netlify.app/";
-    //http://localhost:4200/
+    window.location.href = "https://oja.netlify.app/";//http://localhost:4200/
   }
 
   checkIfBuyerIsLoggedIn(){
