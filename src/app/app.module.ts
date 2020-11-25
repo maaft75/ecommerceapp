@@ -29,10 +29,12 @@ import { HomepageComponent as SellersHomePage} from './components/Sellers/homepa
 import { RegistrationComponent as SellersRegister } from './components/Sellers/registration/registration.component';
 import { DashboardComponent as SellersDashboard } from './components/Sellers/dashboard/dashboard.component';
 import { AddproductComponent } from './components/Sellers/addproduct/addproduct.component';
-import { CategoryComponent } from './components/category/category.component';
-import { CategoriesComponent } from './components/categories/categories.component';
-import { CategoryplaceholderComponent } from './components/categoryplaceholder/categoryplaceholder.component';
-import { SearchComponent } from './components/search/search.component';
+import { CategoryComponent } from './components/CategoryFolder/category/category.component';
+import { CategoriesComponent } from './components/CategoryFolder/categories/categories.component';
+import { CategoryplaceholderComponent } from './components/CategoryFolder/categoryplaceholder/categoryplaceholder.component';
+import { SearchComponent } from './components/search/search/search.component';
+import { SearchPlaceholderComponent } from './components/search/search-placeholder/search-placeholder.component';
+import { SearchResultComponent } from './components/search/search-result/search-result.component';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import { SearchComponent } from './components/search/search.component';
     CategoryComponent,
     CategoriesComponent,
     CategoryplaceholderComponent,
-    SearchComponent
+    SearchComponent,
+    SearchPlaceholderComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/Interfaces/Product';
 import { AuthService as AuthBuyer } from 'src/app/services/Buyers/auth/auth.service';
-import { SearchService } from 'src/app/services/search/search.service';
 import { AuthService as AuthSeller} from 'src/app/services/Sellers/auth/auth.service';
 import { ProductsService } from 'src/app/services/Sellers/products/products.service';
 
@@ -30,8 +29,7 @@ export class NavbarComponent implements OnInit {
     private router : Router,
     private authBuyer : AuthBuyer,
     private authSeller : AuthSeller,
-    private products : ProductsService,
-    private searchService : SearchService) { 
+    private products : ProductsService) { 
       this.searchForm = this.fb.group({
         "searchInput" : [""]
       })
@@ -45,18 +43,15 @@ export class NavbarComponent implements OnInit {
       data => { this.categories = data}
     );
   }
-  
+
   search(){
     this.searchInput = Object.values(this.searchForm.value)[0];
     this.products.GetProducts().subscribe(
       (data) => { 
         this.product = data;
-        //console.log(this.product.filter(x => {return x.name == Object.values(this.searchForm.value)[0] }));
-        this.searchResult = this.product.filter(x => { return x.name.includes( this.searchInput); });
-        //console.log(this.searchResult);
-        this.searchService.sharedData = this.searchResult;
-        this.searchForm.reset();
-        this.router.navigate(["searchResults"]);
+        window.location.href = `https://oja.netlify.app/search/${this.searchInput}`
+        //this.router.navigate(["search/" + this.searchInput]);
+        //this.searchForm.reset();
     })
   }
 

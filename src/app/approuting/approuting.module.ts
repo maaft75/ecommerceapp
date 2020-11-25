@@ -10,10 +10,12 @@ import { DashboardComponent as SellersDashboard } from '../components/Sellers/da
 import { RegistrationComponent as BuyersRegister} from '../components/Buyers/registration/registration.component';
 import { RegistrationComponent as SellersRegister } from '../components/Sellers/registration/registration.component';
 import { AddproductComponent } from '../components/Sellers/addproduct/addproduct.component'; 
-import { CategoryComponent } from '../components/category/category.component';
-import { CategoryplaceholderComponent } from '../components/categoryplaceholder/categoryplaceholder.component';
-import { CategoriesComponent } from '../components/categories/categories.component';
-import { SearchComponent } from '../components/search/search.component';
+import { CategoryComponent } from '../components/CategoryFolder/category/category.component';
+import { CategoryplaceholderComponent } from '../components/CategoryFolder/categoryplaceholder/categoryplaceholder.component';
+import { CategoriesComponent } from '../components/CategoryFolder/categories/categories.component';
+import { SearchComponent } from '../components/search/search/search.component';
+import { SearchPlaceholderComponent } from '../components/search/search-placeholder/search-placeholder.component';
+import { SearchResultComponent } from '../components/search/search-result/search-result.component';
 
 export const appRoutes : Routes = [
   {path:'home', component: BuyersHomePage},
@@ -28,7 +30,10 @@ export const appRoutes : Routes = [
   ]},
   {path:'sell/dashboard', component:SellersDashboard, canActivate : [AuthGuard] },
   {path:'addproduct', component:AddproductComponent, canActivate : [AuthGuard] },
-  {path: 'searchResults', component:SearchComponent},
+  {path: 'search', component:SearchComponent, children:[
+    {path:':productName', component:SearchResultComponent},
+    {path:'',component:SearchPlaceholderComponent}
+  ]},
   {path:'**', redirectTo:'/home', pathMatch:'full'}
 ]
 
