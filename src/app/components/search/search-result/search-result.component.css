@@ -22,3 +22,8 @@ a{
 a:hover{
     color: blue;
 }
+
+.center{ 
+    align-items: center;
+    justify-content: center;
+}

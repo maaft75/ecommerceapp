@@ -23,13 +23,13 @@ export class SearchResultComponent implements OnInit {
     this.activatedRoute.params.subscribe(
       data => {
         this.productName = data.productName; 
-        console.log(this.productName)
+        //console.log(this.productName)
     })
 
     this.products.GetProducts().subscribe(data => {
       this.allProducts = data;
       this.searchResults = this.allProducts.filter(x => {return x.name.toLocaleLowerCase().includes(this.productName.toLocaleLowerCase())});
-      console.log(this.searchResults)
+      //console.log(this.searchResults)
     })
   }
 
