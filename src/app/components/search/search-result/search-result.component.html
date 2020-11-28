@@ -1,7 +1,16 @@
-<div>
-    <br>
-    <div *ngFor="let searchResult of searchResults">
-        <p>{{ searchResult.name }}</p>
-        <p>{{ searchResult.price }}</p>
+<div class="container col-sm-12 box">
+    <div class="row">
+        <div class="col-sm-3" *ngFor="let searchResult of searchResults">
+            <br>
+            <img src="{{ searchResult.imageUrl }}" class="card-img-top brand" alt="...">
+            <br><br>
+            <h6 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                <a href="/product/{{ searchResult.id }}">
+                    {{ searchResult.name | slice:0:16}}... &nbsp;&nbsp;
+                </a>
+                {{ searchResult.price | currency : "NGN":"#" | slice:0:7}}     
+            </h6>
+        </div>
+        <br>
     </div>
 </div>

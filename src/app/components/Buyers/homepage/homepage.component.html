@@ -167,7 +167,7 @@
         
         <div class="imgdiv" *ngFor="let fashion of fashions">
           <br>
-            <a routerLink="/products/{{fashion.id}}"><img src="{{ fashion.imageUrl }}" class="image"> 
+            <a routerLink="/product/{{fashion.id}}"><img src="{{ fashion.imageUrl }}" class="image"> 
             <div class="price">
               <h6>{{ fashion.name | slice:0:15}}...</h6>
               <h6>{{ fashion.price |currency:"NGN":"#" }}</h6>
@@ -199,7 +199,7 @@
         
         <div class="imgdiv" *ngFor="let electronic of electronics">
           <br>
-            <a routerLink="/products/{{electronic.id}}"><img src="{{ electronic.imageUrl }}" class="image"> 
+            <a routerLink="/product/{{electronic.id}}"><img src="{{ electronic.imageUrl }}" class="image"> 
             <div class="price">
               <h6>{{ electronic.name | slice:0:15 }}...</h6>
               <h6>{{ electronic.price |currency:"NGN":"#" }}</h6>
@@ -232,7 +232,7 @@
         
         <div class="imgdiv" *ngFor="let phone of phones">
           <br>
-            <a routerLink="/products/{{phone.id}}"><img src="{{ phone.imageUrl }}" class="image"> 
+            <a routerLink="/product/{{phone.id}}"><img src="{{ phone.imageUrl }}" class="image"> 
             <div class="price">
               <hr/>
               <h6>{{ phone.name | slice:0:15 }}...</h6>
