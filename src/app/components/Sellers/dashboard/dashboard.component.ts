@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
   GetProductsByUser(){
     this.products.GetProducts().subscribe(
       (data) => {
-        console.log(data);
+        //console.log(data);
         this.sellerProducts = data.filter( x => x.seller.id == this.seller.id);
       })
   }

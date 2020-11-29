@@ -16,6 +16,8 @@ import { CategoriesComponent } from '../components/CategoryFolder/categories/cat
 import { SearchComponent } from '../components/search/search/search.component';
 import { SearchPlaceholderComponent } from '../components/search/search-placeholder/search-placeholder.component';
 import { SearchResultComponent } from '../components/search/search-result/search-result.component';
+import { ProductComponent } from '../components/Products/product/product.component';
+import { ProductdetailComponent } from '../components/Products/productdetail/productdetail.component';
 
 export const appRoutes : Routes = [
   {path:'home', component: BuyersHomePage},
@@ -33,6 +35,9 @@ export const appRoutes : Routes = [
   {path: 'search', component:SearchComponent, children:[
     {path:':productName', component:SearchResultComponent},
     {path:'',component:SearchPlaceholderComponent}
+  ]},
+  {path:'product', component: ProductComponent, children:[
+    {path:':id', component:ProductdetailComponent}
   ]},
   {path:'**', redirectTo:'/home', pathMatch:'full'}
 ]

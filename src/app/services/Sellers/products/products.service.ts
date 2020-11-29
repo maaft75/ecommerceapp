@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Product } from 'src/app/Interfaces/Product';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth/auth.service';
 
@@ -18,15 +19,35 @@ export class ProductsService {
     return this.http.get(this.productUrl);
   }
 
+  GetProductsById(id){
+    return this.http.get(this.productUrl + id)
+  }
+
   GetCategory = () : Observable<any> => {
     return this.http.get(this.categoryUrl);
   }
-
+ 
   AddProducts(product) : Observable<any>{
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', `Bearer ${this.auth.GetToken()}`)
     headers = headers.set('Accept', 'application/json')
     headers = headers.set('Content-Type', 'application/json')
-    return this.http.post<any>(this.productUrl, product, {headers})
+    return this.http.post<Product>(this.productUrl, product, {headers})
+  }
+
+  EditProduct(id, product){
+    let headers = new HttpHeaders();
+    headers = headers.set('Authorization', `Bearer ${this.auth.GetToken()}`)
+    headers = headers.set('Accept', 'application/json')
+    headers = headers.set('Content-Type', 'application/json')
+    return this.http.put<Product>(this.productUrl + id, product, {headers})
+  }
+
+  DeleteProduct(id){
+    let headers = new HttpHeaders();
+    headers = headers.set('Authorization', `Bearer ${this.auth.GetToken()}`)
+    headers = headers.set('Accept', 'application/json')
+    headers = headers.set('Content-Type', 'application/json')
+    return this.http.delete(this.productUrl, {headers})
   }
 }

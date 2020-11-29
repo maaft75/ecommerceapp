@@ -1,0 +1,26 @@
+<div class="col-md-12 box">
+    <br/>
+    <div class="row">
+        <div class="col-md-3">
+            <img src="{{product.imageUrl}}">
+        </div>
+        <div class="col-md-7 info">
+            <br/>
+            <h5>
+                {{product.name}}
+                <button class="btn btn-warning button">ADD TO CART</button>
+            </h5>
+            <br/>
+            <hr/>
+            <h5>Cost : {{product.price | currency : "NGN":"#" }}</h5>
+            <hr/>
+            <h5>In Stock : {{product.quantity }}</h5>
+            <hr/>
+            <h5> Store Name : {{ product.seller.storeName }} </h5>
+            <button class="btn btn-warning col-sm-12">
+                <h5>PURCHASE</h5>
+            </button>
+        </div>
+    </div>
+    <br/>
+</div>

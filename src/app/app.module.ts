@@ -35,6 +35,8 @@ import { CategoryplaceholderComponent } from './components/CategoryFolder/catego
 import { SearchComponent } from './components/search/search/search.component';
 import { SearchPlaceholderComponent } from './components/search/search-placeholder/search-placeholder.component';
 import { SearchResultComponent } from './components/search/search-result/search-result.component';
+import { ProductComponent } from './components/Products/product/product.component';
+import { ProductdetailComponent } from './components/Products/productdetail/productdetail.component';
 
 
 @NgModule({
@@ -54,7 +56,9 @@ import { SearchResultComponent } from './components/search/search-result/search-
     CategoryplaceholderComponent,
     SearchComponent,
     SearchPlaceholderComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    ProductComponent,
+    ProductdetailComponent
   ],
   imports: [
     BrowserModule,
