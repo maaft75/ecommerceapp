@@ -22,7 +22,7 @@ export class ProductdetailComponent implements OnInit {
         //console.log(+params.id);
         this.productService.GetProductsById(+params.id).subscribe(data => {
           this.product = data;
-          console.log(this.product);
+          //console.log(this.product);
       })
     })
   }

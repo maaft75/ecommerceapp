@@ -9,7 +9,7 @@ import { LoginComponent as SellersLogin } from '../components/Sellers/login/logi
 import { DashboardComponent as SellersDashboard } from '../components/Sellers/dashboard/dashboard.component';
 import { RegistrationComponent as BuyersRegister} from '../components/Buyers/registration/registration.component';
 import { RegistrationComponent as SellersRegister } from '../components/Sellers/registration/registration.component';
-import { AddproductComponent } from '../components/Sellers/addproduct/addproduct.component'; 
+import { AddproductComponent } from '../components/Products/addproduct/addproduct.component'; 
 import { CategoryComponent } from '../components/CategoryFolder/category/category.component';
 import { CategoryplaceholderComponent } from '../components/CategoryFolder/categoryplaceholder/categoryplaceholder.component';
 import { CategoriesComponent } from '../components/CategoryFolder/categories/categories.component';
@@ -18,6 +18,8 @@ import { SearchPlaceholderComponent } from '../components/search/search-placehol
 import { SearchResultComponent } from '../components/search/search-result/search-result.component';
 import { ProductComponent } from '../components/Products/product/product.component';
 import { ProductdetailComponent } from '../components/Products/productdetail/productdetail.component';
+import { UpdateComponent } from '../components/Products/update/update.component';
+import { UpdateproductComponent } from '../components/Products/updateproduct/updateproduct.component';
 
 export const appRoutes : Routes = [
   {path:'home', component: BuyersHomePage},
@@ -38,6 +40,9 @@ export const appRoutes : Routes = [
   ]},
   {path:'product', component: ProductComponent, children:[
     {path:':id', component:ProductdetailComponent}
+  ]},
+  {path:'update/product', component: UpdateComponent, canActivate : [AuthGuard], children:[
+    {path:':id', component:UpdateproductComponent}
   ]},
   {path:'**', redirectTo:'/home', pathMatch:'full'}
 ]

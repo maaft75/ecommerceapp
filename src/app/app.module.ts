@@ -28,7 +28,7 @@ import { LoginComponent as SellersLogin} from './components/Sellers/login/login.
 import { HomepageComponent as SellersHomePage} from './components/Sellers/homepage/homepage.component';
 import { RegistrationComponent as SellersRegister } from './components/Sellers/registration/registration.component';
 import { DashboardComponent as SellersDashboard } from './components/Sellers/dashboard/dashboard.component';
-import { AddproductComponent } from './components/Sellers/addproduct/addproduct.component';
+import { AddproductComponent } from './components/Products/addproduct/addproduct.component';
 import { CategoryComponent } from './components/CategoryFolder/category/category.component';
 import { CategoriesComponent } from './components/CategoryFolder/categories/categories.component';
 import { CategoryplaceholderComponent } from './components/CategoryFolder/categoryplaceholder/categoryplaceholder.component';
@@ -37,6 +37,8 @@ import { SearchPlaceholderComponent } from './components/search/search-placehold
 import { SearchResultComponent } from './components/search/search-result/search-result.component';
 import { ProductComponent } from './components/Products/product/product.component';
 import { ProductdetailComponent } from './components/Products/productdetail/productdetail.component';
+import { UpdateComponent } from './components/Products/update/update.component';
+import { UpdateproductComponent } from './components/Products/updateproduct/updateproduct.component';
 
 
 @NgModule({
@@ -58,7 +60,9 @@ import { ProductdetailComponent } from './components/Products/productdetail/prod
     SearchPlaceholderComponent,
     SearchResultComponent,
     ProductComponent,
-    ProductdetailComponent
+    ProductdetailComponent,
+    UpdateComponent,
+    UpdateproductComponent
   ],
   imports: [
     BrowserModule,

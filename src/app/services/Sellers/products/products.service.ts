@@ -20,7 +20,7 @@ export class ProductsService {
   }
 
   GetProductsById(id){
-    return this.http.get(this.productUrl + id)
+    return this.http.get<Product>(this.productUrl + id)
   }
 
   GetCategory = () : Observable<any> => {
@@ -38,9 +38,9 @@ export class ProductsService {
   EditProduct(id, product){
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', `Bearer ${this.auth.GetToken()}`)
-    headers = headers.set('Accept', 'application/json')
-    headers = headers.set('Content-Type', 'application/json')
-    return this.http.put<Product>(this.productUrl + id, product, {headers})
+    //headers = headers.set('Accept', 'application/json')
+    //headers = headers.set('Content-Type', 'application/json')
+    return this.http.put<Product>(this.productUrl + id, product, {headers, responseType:'text' as 'json'})
   }
 
   DeleteProduct(id){
