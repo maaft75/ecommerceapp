@@ -20,7 +20,7 @@
                 <td>
                     <a routerLink="/update/product/{{  sellerProduct.id }}" > Edit </a> | 
                     <a routerLink="../../product/{{  sellerProduct.id }}" >Details</a> | 
-                    <a (click)="Delete(sellerProduct.id)" >Delete</a>
+                    <button (click)="Delete(sellerProduct.id)" class="btn btn-danger btn-sm" >Delete</button>
                 </td>
               </tr>
             </tbody>

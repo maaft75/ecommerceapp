@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
   public seller : any;
   public sellerProducts : any;
 
-  constructor(private auth : AuthService, private products : ProductsService) { }
+  constructor(private auth : AuthService, private productService : ProductsService) { }
 
   ngOnInit(): void {
     this.seller = JSON.parse(this.auth.GetSeller());
@@ -20,15 +20,16 @@ export class DashboardComponent implements OnInit {
   }
 
   GetProductsByUser(){
-    this.products.GetProducts().subscribe(
+    this.productService.GetProducts().subscribe(
       (data) => {
-        //console.log(data);
         this.sellerProducts = data.filter( x => x.seller.id == this.seller.id);
       })
   }
 
   Delete(id){
-
+    this.productService.DeleteProduct(id).subscribe(
+      (data) => { alert(data); location.reload() }
+    )
   }
 
 }

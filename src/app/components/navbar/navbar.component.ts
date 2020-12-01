@@ -44,6 +44,10 @@ export class NavbarComponent implements OnInit {
     );
   }
 
+  ngOnChanges() : void{
+    location.reload();
+  }
+
   search(){
     this.searchInput = Object.values(this.searchForm.value)[0];
     this.products.GetProducts().subscribe(

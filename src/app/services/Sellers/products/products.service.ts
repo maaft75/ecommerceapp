@@ -46,8 +46,6 @@ export class ProductsService {
   DeleteProduct(id){
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', `Bearer ${this.auth.GetToken()}`)
-    headers = headers.set('Accept', 'application/json')
-    headers = headers.set('Content-Type', 'application/json')
-    return this.http.delete(this.productUrl, {headers})
+    return this.http.delete(this.productUrl + id, {headers, responseType:'text' as 'json'})
   }
 }
