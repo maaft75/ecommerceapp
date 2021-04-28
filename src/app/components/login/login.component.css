@@ -1,0 +1,12 @@
+.loginleft{
+    width: 50vw;
+    height: 48.3vw;
+    background-color: black;
+}
+
+.loginright{
+    width: 50%;
+    height: 48.3vw;
+    float: right;
+    background-color: white;
+}

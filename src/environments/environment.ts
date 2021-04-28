@@ -4,10 +4,8 @@
 
 export const environment = {
   production: false,
-  buyerUrl:"https://ojabackend.herokuapp.com/api/buyers/",
-  sellerUrl:"https://ojabackend.herokuapp.com/api/sellers/",
-  productUrl:"https://ojabackend.herokuapp.com/api/products/",
-  categoryUrl:"https://ojabackend.herokuapp.com/api/categories/",
+  apiAuthUrl:"https://192.168.245.121:446/api/users/",
+  apiProductUrl:"https://192.168.245.121:446/api/products/",
   firebaseConfig : {
     apiKey: "AIzaSyAhp7ehPnYS6tisxuHefTzhlqLU-GF2qDk",
     authDomain: "storeimagegallery.firebaseapp.com",
