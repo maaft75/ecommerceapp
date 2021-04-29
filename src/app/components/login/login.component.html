@@ -4,19 +4,17 @@
 <div class="split right">
     <form [formGroup]="loginForm" (ngSubmit)="Login()" class="col-sm-12">
         <br/>
-        <h4 style="text-align: center;"> LOGIN </h4>
+        <h2 style="text-align: center;"> SIGN IN </h2>
         <hr/>
         
         <div class="col-sm-12">
             <div class="form-group">
-                <label for="Name"><b>NAME</b></label>
                 <input type="text" name="Name" placeholder="Name" formControlName="Name" class="col-md-12 form-control">
             </div>
         </div>
 
         <div class="col-sm-12">
             <div class="form-group">
-                <label for="Password"><b>PASSWORD</b></label>
                 <input type="password" name="Password" placeholder="Password" formControlName="Password" class="col-md-12 form-control">
             </div>
         </div>
@@ -35,7 +33,7 @@
 
         <div class="col-sm-12">
             <button class="col-sm-12" [disabled]="!loginForm.valid" >
-                <b>SIGN IN</b>
+                SIGN IN
             </button>
         </div>
          
