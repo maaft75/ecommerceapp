@@ -1,0 +1,71 @@
+<div class="split left">
+    <u>ARIYO</u>
+</div>
+<div class="split right">
+    <form [formGroup]="createUserForm" (ngSubmit)="CreateUser()" class="col-sm-8">
+        <br/>
+        <h2 style="text-align: center;"> CREATE USER </h2>
+        <hr/>
+        
+        <div class="col-sm-12">
+            <div class="form-group">
+                <input type="text" name="Name" placeholder="Name" formControlName="Name" class="col-md-12 form-control">
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="alert alert-danger" *ngIf="Name.touched && Name.errors?.required">
+                <small>Name is required.</small>
+            </div>
+        </div> 
+
+        <div class="col-sm-12">
+            <div class="form-group">
+                <input type="password" name="Password" placeholder="Password" formControlName="Password" class="col-md-12 form-control">
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="alert alert-danger" *ngIf="Password.touched && Password.errors?.required">
+                <small>Password is required.</small>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="form-group">  
+                <select class="col-sm-12 form-control" placeholder="Role" name="Role" formControlName="Role">
+                    <option *ngFor="let role of roles" value="{{ role.role }}"> {{ role.role }}  </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="alert alert-danger" *ngIf="Role.touched && Role.errors?.required">
+                <small>Role is required.</small>
+            </div>
+        </div> 
+
+        <div class="col-sm-12">
+            <div class="form-group">
+                <select name="Location" placeholder="Location" formControlName="Location" class="col-sm-12 form-control">
+                    <option *ngFor="let location of locations" value="{{ location.locationName }}"> {{ location.locationName }}  </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="alert alert-danger" *ngIf="Location.touched && Location.errors?.required">
+                <small>Location is required.</small>
+            </div>
+        </div> 
+
+        <div class="col-sm-12">
+            <button class="col-sm-12" [disabled]="!createUserForm.valid" >
+               CREATE
+            </button>
+        </div>
+         
+        <br/>
+        <br/>
+    </form>
+</div>

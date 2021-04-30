@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  apiAuthUrl:"https://192.168.245.121:446/api/users/",
-  apiProductUrl:"https://192.168.245.121:446/api/products/",
+  frontendUrl : "http://localhost:4200/",
+  apiAuthUrl: "https://192.168.117.121:446/api/users/",
+  apiProductUrl: "https://192.168.117.121:446/api/products/",
   firebaseConfig : {
     apiKey: "AIzaSyAhp7ehPnYS6tisxuHefTzhlqLU-GF2qDk",
     authDomain: "storeimagegallery.firebaseapp.com",

@@ -1,7 +1,8 @@
 export const environment = {
   production: true,
-  apiAuthUrl:"https://ojabackend.herokuapp.com/api/users/",
-  apiProductUrl:"https://ojabackend.herokuapp.com/api/products/",
+  frontendUrl : "https://ariyostore.netlify.app/",
+  apiAuthUrl: "https://ojabackend.herokuapp.com/api/users/",
+  apiProductUrl: "https://ojabackend.herokuapp.com/api/products/",
   firebaseConfig : {
     apiKey: "AIzaSyAhp7ehPnYS6tisxuHefTzhlqLU-GF2qDk",
     authDomain: "storeimagegallery.firebaseapp.com",

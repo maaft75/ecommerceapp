@@ -11,7 +11,7 @@
 .left {
     left: 0;
     display: flex;
-    color: linear-gradient(147deg, #000000 0%, #04619f 74%);
+    color: linear-gradient(147deg, #000000 0%, #04619f 74%);;
     font-size: 150px;
     align-items: center;
     align-content: center;
