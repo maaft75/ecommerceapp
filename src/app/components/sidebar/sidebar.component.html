@@ -1,0 +1,73 @@
+<div class="sideBar" [style]="sidebar">
+    <br/>
+    <div style="float: right;">     
+        <div (click)="hideSideBar()" class="close">
+            <span class="close">&times;</span>
+        </div>
+    </div>
+    <br/><br/>
+
+    <!-- Store Keeper -->
+   <div *ngIf="storekeeper">
+        <a class="btn btn-info" href="/sales/add" style="color: white;">
+            Sales
+        </a>
+        <br><br>
+   </div>
+
+   <div *ngIf="storekeeper">
+        <a class="btn btn-info" href="/dashboard" style="color: white;">
+            Dashboard
+        </a>
+        <br><br>
+    </div>
+    
+   <!-- Administrator/Manager -->
+    <div *ngIf="admin"> 
+        <a  class="btn btn-info" href="product/add" style="color: white;">
+            Add Product
+        </a>
+        <br><br>
+    </div>
+
+    <div *ngIf="admin"> 
+        <a  class="btn btn-info" href="product/add" style="color: white;">
+            View All Products
+        </a>
+        <br><br>
+    </div>
+
+    <div *ngIf="admin"> 
+        <a  class="btn btn-info" href="inventory/add" style="color: white;">
+            Add To The Inventory
+        </a>
+        <br><br>
+    </div>
+
+    <!-- Super Administrator -->
+    <div *ngIf="superadmin">
+        <a class="btn btn-info" href="/createuser" style="color: white;">
+            Create User
+        </a>
+        <br><br>
+    </div>
+
+    <div *ngIf="superadmin">
+        <a class="btn btn-info" href="/sadmin/dashboard" style="color: white;">
+            Dashboard
+        </a>
+        <br><br>
+    </div>
+
+    <div (click)="Logout()">
+        <a class="btn btn-info" style="color: white;">
+            Log out
+        </a>
+        <br><br>
+    </div>
+
+</div>
+<br>
+
+<img class="sidebaricon" (click)="showSideBar()" src="https://firebasestorage.googleapis.com/v0/b/image-repo-d5486.appspot.com/o/images%2Fsidebar.png?alt=media&token=a5ddc955-7d78-484d-a1fe-1d9c0035fe32">
+

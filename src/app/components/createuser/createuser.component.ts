@@ -32,6 +32,7 @@ export class CreateuserComponent implements OnInit {
       alert(`User Created
             Role : ${response.role} 
             Name : ${response.name}
+            Password : ${this.createUserForm.get("Password").value}
             Location : ${response.location}.`);
     })
    }

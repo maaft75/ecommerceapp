@@ -1,0 +1,38 @@
+.majordiv{
+    display: flex;
+    align-self: center;
+    align-items: center;
+    margin: 0 200px 0 200px;
+    align-content: center;
+    justify-content: center;
+    -webkit-box-shadow: 2px 2px 13px -4px rgba(224,20,224,1);
+    -moz-box-shadow: 2px 2px 13px -4px rgba(224,20,224,1);
+    box-shadow: 2px 2px 13px -4px rgba(224,20,224,1);
+}
+
+.formContent{
+    display: flex;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+@media (max-width: 1000px) {
+    .majordiv{
+        display: flex;
+        align-self: center;
+        align-items: center;
+        margin: 0 50px 0 50px;
+        align-content: center;
+        justify-content: center;
+        -webkit-box-shadow: 2px 2px 13px -4px rgba(224,20,224,1);
+        -moz-box-shadow: 2px 2px 13px -4px rgba(224,20,224,1);
+        box-shadow: 2px 2px 13px -4px rgba(224,20,224,1);
+    }
+}
+
+.loading{
+    width: 30px;
+    height: 30px;
+}

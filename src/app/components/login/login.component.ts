@@ -28,7 +28,20 @@ export class LoginComponent implements OnInit {
       this.authService.saveId(response.id);
       this.authService.saveRole(response.role);
       this.authService.saveToken(response.token);
-      window.location.href = environment.frontendUrl + "dashboard";
+
+      if(response.role == "Store Keeper")
+      {
+        window.location.href = environment.frontendUrl + "dashboard";
+      }
+      else if(response.role == "Administrator")
+      {
+        window.location.href = environment.frontendUrl + "admin/dashboard";
+      }
+      else if(response.role == "Super Administrator")
+      {
+        window.location.href = environment.frontendUrl + "sadmin/dashboard";
+      }
+
     })
   }
 

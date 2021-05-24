@@ -13,7 +13,7 @@ export class AdminguardGuard implements CanActivate {
 
   canActivate( next: ActivatedRouteSnapshot, state: RouterStateSnapshot) : Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree 
   {
-    if(this.authService.getRoleFromLocalStorage() == "Super Administrator"){
+    if(this.authService.getRoleFromLocalStorage() == "Administrator"){
       return true
     }
     else

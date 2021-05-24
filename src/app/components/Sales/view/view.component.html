@@ -1,0 +1,49 @@
+<div class="container-fluid">
+
+    <app-sidebar></app-sidebar>
+ 
+     <div>
+         <br>
+         <div class="row">
+             <div class="container">
+                 <br/><br/>
+                 <div class="center">
+                    <div class="form-group">
+                        <select name="Location" placeholder="Location" class="col-sm-12 form-control" (change)="fetch($event.target.value)">
+                            <option selected> Select City/Location... </option>
+                            <option *ngFor="let location of locations" value="{{ location.locationName }}"> {{ location.locationName }} </option>
+                        </select>
+                    </div>
+                 </div>
+                 <br/><br/>
+                 <div class="center" *ngIf="checkTrue">
+                     <h2> SALES COUNT : {{ salesCount }}</h2>
+                 </div>
+                 <br/><br/>
+                 <div>
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Unit Price</th>
+                            <th scope="col">Total Price</th>
+                            <th scope="col">Purchased On</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let saleTable of salesTable">
+                            <th scope="row">{{saleTable.name}}</th>
+                            <td>{{ saleTable.quantity }}</td>
+                            <td>{{ saleTable.unit_Price }}</td>
+                            <td>{{ saleTable.total_Price }}</td>
+                            <td>{{ saleTable.date_Sold | date }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+             </div>
+         </div>
+     </div>
+ 
+</div>

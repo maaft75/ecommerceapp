@@ -1,0 +1,105 @@
+<div class="container-fluid">
+
+    <app-sidebar></app-sidebar>
+
+    <br/><br/>
+
+    <div class="majordiv" id="majordiv">
+            
+        <div class="col-sm-9">
+
+            <form [formGroup]="salesForm" (ngSubmit)="SaveSoldProducts()">
+
+                <br/>
+
+                <div class="alert alert-info" *ngIf="checkIfAnyProductHasBeenAdded">
+                    <small> {{ numberOfProductsAdded }} Products Added </small><br/>
+                </div>
+
+                <hr/>
+                <h3 style="text-align: center;">Add Sold Products</h3>
+                <hr/>
+
+                <div>
+                    <label for="Product Name"><b>Product Name</b></label>
+                    <select class="form-control" placeholder="Product Name" name="name" formControlName="name" (change)="onNameChange($event.target.value)">
+                        <option *ngFor="let allSavedProduct of allSavedProducts" value="{{ allSavedProduct.productName }}"> {{ allSavedProduct.productName }}</option>
+                    </select>
+                    <br/>
+                </div>
+        
+                <div class="alert alert-danger" *ngIf="name.touched && name.errors?.required">
+                    <small> Product Name is required. </small><br/>
+                </div>
+
+                <div>
+                    <label for="Quantity Sold"><b>Quantity Sold</b></label>
+                    <input type="number" class="form-control" placeholder="Quantity" name="quantity" formControlName="quantity" (keyup)="onQuantityChange($event.target.value)"><br/>
+                </div>
+        
+                <div class="alert alert-danger" *ngIf="quantity.touched && quantity.errors?.required">
+                    <small> Quantity is required. </small><br/>
+                </div>
+
+                <div>
+                    <label for="Unit Price"><b>Unit Price</b></label>
+                    <input type="number" class="form-control" placeholder="Unit Price" name="unit_Price" value="{{unitprice}}" readonly formControlName="unit_Price"><br/>
+                </div>
+        
+                <div class="alert alert-danger" *ngIf="unit_Price.touched && unit_Price.errors?.required">
+                    <small> Unit Price is required. </small><br/>
+                </div>
+
+                <div>
+                    <label for="Total Price"><b>Total Price</b></label>
+                    <input type="number" class="form-control" placeholder="Total Price" name="total_Price" value="2" readonly formControlName="total_Price"><br/>
+                </div>
+        
+                <div class="alert alert-danger" *ngIf="total_Price.touched && total_Price.errors?.required">
+                    <small> Total Price is required. </small><br/>
+                </div>
+                
+                <div (click)="addMoreSoldProducts()">
+                    <a class="form-control btn btn-success" style="color: white;">Add Products</a>
+                </div>
+                <br>
+                <div>
+                    <button type="submit" class="form-control btn btn-success" style="color: white;">Save Products</button>
+                </div>
+
+                <!-- <div class="col-sm-12" *ngIf="!button">
+                    <button class="col-sm-12 btn btn-success" [disabled]>
+                        <img class="loading" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fae84325701f6d97ac4ad7e7951ac9063_w200.webp?alt=media&token=7eb12a30-3899-458a-8c5c-587c49e0b884"/>
+                    </button>
+                </div> -->
+
+                <br>
+                <br>
+
+            </form>
+
+        </div>
+    
+        <div id="myModal" class="modal" [style]="printModal">
+
+            
+            
+            <div class = "container modal-content col-sm-12" style="text-align: center;">
+                <p>Sold Product Successfully Saved!</p>
+                <hr>
+                <div>
+                    <button (click)="printReceipt()" type="submit" class="col-sm-5 form-control btn btn-success" style="color: white;">Print Receipt</button>
+                </div>
+            </div>
+
+            
+            
+        </div>
+
+    </div>
+   
+    <br>
+    <br>
+    <br>
+
+</div>

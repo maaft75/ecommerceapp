@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -14,19 +15,23 @@ export class AuthService {
 
   constructor(private http : HttpClient) { }
   
-  getRoles(){
+  getUser(id) : Observable<any>{
+    return this.http.get(environment.apiAuthUrl + id);
+  }
+
+  getRoles() : Observable<any>{
     return this.http.get(this.roleUrl);
   }
 
-  getLocations(){
+  getLocations() : Observable<any>{
     return this.http.get(this.locationUrl);
   }
 
-  login(data){
+  login(data) : Observable<any>{
     return this.http.post<any>(this.loginUrl, data);
   }
 
-  createUser(data){
+  createUser(data) : Observable<any>{
     return this.http.post<any>(this.createUserUrl, data);
   }
 
