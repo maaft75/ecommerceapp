@@ -42,6 +42,9 @@ export class LoginComponent implements OnInit {
         window.location.href = environment.frontendUrl + "sadmin/dashboard";
       }
 
+    },
+    (error) => {
+       alert(error["error"]["error"]);
     })
   }
 

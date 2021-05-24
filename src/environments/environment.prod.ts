@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  frontendUrl : "https://ariyostore.netlify.app/",
+  frontendUrl : "https://ariyo.netlify.app/",
   apiAuthUrl: "https://ariyostore.herokuapp.com/api/users/",
   apiSalesUrl: "https://ariyostore.herokuapp.com/api/sales/",
   apiProductUrl: "https://ariyostore.herokuapp.com/api/products/",
