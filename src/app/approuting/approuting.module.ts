@@ -23,7 +23,7 @@ export const appRoutes : Routes = [
   {path:'sales/add', component: SalesAdd, canActivate : [StorekeeperguardGuard]},
   {path:'sales/view', component: SalesView, canActivate : [SuperadminguardGuard]},
   {path:'inventory/add', component: InventoryAdd, canActivate : [AdminguardGuard]},
-  {path:'createuser', component: CreateuserComponent, canActivate : [AdminguardGuard]},
+  {path:'createuser', component: CreateuserComponent, canActivate : [SuperadminguardGuard]},
   {path:'inventory/view', component: InventoryView, canActivate : [SuperadminguardGuard]},
   {path:'dashboard', component: StorekeeperComponent, canActivate : [StorekeeperguardGuard]},
   {path:'admin/dashboard', component: AdministratorComponent, canActivate : [AdminguardGuard]},
