@@ -12,6 +12,7 @@ export class CreateuserComponent implements OnInit {
   public roles : any;
   public locations : any;
   public createUserForm : FormGroup;
+  public loginButton : boolean = true;
 
   constructor(private fb : FormBuilder, private authService : AuthService) {
     this.createUserForm = this.fb.group({
@@ -28,6 +29,7 @@ export class CreateuserComponent implements OnInit {
    }
 
   CreateUser(){ 
+    this.loginButton = false;
     this.authService.createUser(this.createUserForm.value).subscribe((response) => {
       alert(`User Created
             Role : ${response.role} 

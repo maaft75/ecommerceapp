@@ -23,28 +23,25 @@
     </div>
     
    <!-- Administrator/Manager -->
-    <div *ngIf="admin"> 
-        <a  class="btn btn-info" href="product/add" style="color: white;">
-            Add Product
-        </a>
-        <br><br>
-    </div>
+    
 
     <div *ngIf="admin"> 
-        <a  class="btn btn-info" href="product/add" style="color: white;">
+        <a  class="btn btn-info" href="product/view" style="color: white;">
             View All Products
         </a>
         <br><br>
     </div>
 
-    <div *ngIf="admin"> 
-        <a  class="btn btn-info" href="inventory/add" style="color: white;">
-            Add To The Inventory
+    
+
+    <!-- Super Administrator -->
+    <div *ngIf="superadmin">
+        <a class="btn btn-info" href="/sadmin/dashboard" style="color: white;">
+            Dashboard
         </a>
         <br><br>
     </div>
 
-    <!-- Super Administrator -->
     <div *ngIf="superadmin">
         <a class="btn btn-info" href="/createuser" style="color: white;">
             Create User
@@ -52,9 +49,16 @@
         <br><br>
     </div>
 
-    <div *ngIf="superadmin">
-        <a class="btn btn-info" href="/sadmin/dashboard" style="color: white;">
-            Dashboard
+    <div *ngIf="superadmin"> 
+        <a  class="btn btn-info" href="product/add" style="color: white;">
+            Add Product
+        </a>
+        <br><br>
+    </div>
+
+    <div *ngIf="superadmin"> 
+        <a  class="btn btn-info" href="inventory/add" style="color: white;">
+            Add To The Inventory
         </a>
         <br><br>
     </div>

@@ -19,10 +19,10 @@ import { SuperadministratorComponent } from '../components/Dashboard/superadmini
 export const appRoutes : Routes = [
   {path:'home', component: HomeComponent},
   {path:'login', component: LoginComponent},
-  {path:'product/add', component: ProductAdd, canActivate : [AdminguardGuard]},
+  {path:'product/add', component: ProductAdd, canActivate : [SuperadminguardGuard]},
   {path:'sales/add', component: SalesAdd, canActivate : [StorekeeperguardGuard]},
   {path:'sales/view', component: SalesView, canActivate : [SuperadminguardGuard]},
-  {path:'inventory/add', component: InventoryAdd, canActivate : [AdminguardGuard]},
+  {path:'inventory/add', component: InventoryAdd, canActivate : [SuperadminguardGuard]},
   {path:'createuser', component: CreateuserComponent, canActivate : [SuperadminguardGuard]},
   {path:'inventory/view', component: InventoryView, canActivate : [SuperadminguardGuard]},
   {path:'dashboard', component: StorekeeperComponent, canActivate : [StorekeeperguardGuard]},

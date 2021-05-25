@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SalesService } from 'src/app/services//sales/sales.service';
 import { ProductsService } from 'src/app/services/products/products.service';
+import { InventoryService } from 'src/app/services/inventory/inventory.service';
 
 @Component({
   selector: 'app-add',
@@ -13,9 +14,12 @@ import { ProductsService } from 'src/app/services/products/products.service';
   styleUrls: ['./add.component.css']
 })
 export class AddComponent implements OnInit {
-
+  
+  
+  public sales : any;
   public userId : Number;
   public unitprice : any;
+  public inventory : any;
   public userName : Number;
   public totalprice : Number;
   public salesForm : FormGroup;
@@ -32,7 +36,8 @@ export class AddComponent implements OnInit {
     private fb : FormBuilder, 
     private authService : AuthService, 
     private salesService : SalesService,
-    private productService : ProductsService) { 
+    private productService : ProductsService,
+    private inventoryService : InventoryService) { 
     this.salesForm = this.fb.group({
       "name" : ["", Validators.required],
       "quantity" : ["", Validators.required],
@@ -73,16 +78,38 @@ export class AddComponent implements OnInit {
   }
 
   addMoreSoldProducts(){
-    this.salesForm.patchValue( { soldBy : { id : this.userId} });
-    this.salesForm.patchValue( { soldBy : { name : "string"} });
-    this.salesForm.patchValue( { soldBy : { password : "string"} });
-    this.salesForm.patchValue( { soldBy : { role : "string"} });
-    this.salesForm.patchValue( { soldBy : { location : "string"} });
 
-    this.allProducts.push(this.salesForm.value);
-    this.salesForm.reset();
-    this.checkIfAnyProductHasBeenAdded = true;
-    this.numberOfProductsAdded = this.allProducts.length;
+    let location = this.authService.getLocationFromLocalStorage();
+
+    let name = this.salesForm.get("name").value;
+
+    this.salesService.getIndividualCountOfSoldProduct(location, name).subscribe((response) => {
+      this.sales = response;
+      this.inventoryService.getIndividualCountOfProductFromTheInventory(location, name).subscribe((response) => {
+        this.inventory = response;
+
+        let checkIfProductIsAvailable = Number(this.sales.count) >= Number(this.inventory.count)
+
+        if(checkIfProductIsAvailable){
+          alert("This product is currently not available in the store")
+          this.salesForm.reset();
+        }
+        else
+        {
+          this.salesForm.patchValue( { soldBy : { id : this.userId} });
+          this.salesForm.patchValue( { soldBy : { name : "string"} });
+          this.salesForm.patchValue( { soldBy : { password : "string"} });
+          this.salesForm.patchValue( { soldBy : { role : "string"} });
+          this.salesForm.patchValue( { soldBy : { location : "string"} });
+
+          this.allProducts.push(this.salesForm.value);
+          this.salesForm.reset();
+          this.checkIfAnyProductHasBeenAdded = true;
+          this.numberOfProductsAdded = this.allProducts.length;
+        }
+        
+      })
+    })
   }
   
   SaveSoldProducts(){

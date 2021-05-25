@@ -47,12 +47,20 @@ export class AuthService {
     localStorage.setItem("token", token);
   }
 
+  saveLocation(location){
+    localStorage.setItem("location", location);
+  }
+
   getId(){
     return localStorage.getItem("id");
   }
 
   getRoleFromLocalStorage(){
     return localStorage.getItem("role");
+  }
+
+  getLocationFromLocalStorage(){
+    return localStorage.getItem("location");
   }
 
   getToken(){

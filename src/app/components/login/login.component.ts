@@ -11,6 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   public loginForm : FormGroup;
+  public loginButton : boolean = true;
 
   constructor(private fb : FormBuilder, private authService : AuthService) { 
     this.loginForm = this.fb.group({
@@ -23,11 +24,13 @@ export class LoginComponent implements OnInit {
   }
 
   Login(){
+    this.loginButton = false;
     this.authService.login(this.loginForm.value).subscribe((response) =>
     {
       this.authService.saveId(response.id);
       this.authService.saveRole(response.role);
       this.authService.saveToken(response.token);
+      this.authService.saveLocation(response.location);
 
       if(response.role == "Store Keeper")
       {
@@ -45,6 +48,7 @@ export class LoginComponent implements OnInit {
     },
     (error) => {
        alert(error["error"]["error"]);
+       location.reload();
     })
   }
 

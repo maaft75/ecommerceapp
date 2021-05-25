@@ -51,7 +51,7 @@ export class AddComponent implements OnInit {
   SaveProducts(){
     this.inventoryService.addProductToInventory(this.moreProductsList).subscribe((response) => {
       alert(`${this.moreProductsList.length} Products successfully saved.`);
-      window.location.href = environment.frontendUrl + "dashboard";
+      window.location.href = environment.frontendUrl + "sadmin/dashboard";
     })
   }
 

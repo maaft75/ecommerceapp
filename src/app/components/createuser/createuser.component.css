@@ -63,3 +63,8 @@ img{
         width: 100%;
     }
 }
+
+.loading{
+    width: 25px;
+    height: 25px;
+}
