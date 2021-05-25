@@ -34,6 +34,9 @@ export class CreateuserComponent implements OnInit {
             Name : ${response.name}
             Password : ${this.createUserForm.get("Password").value}
             Location : ${response.location}.`);
+    },
+    (error) => {
+       alert(error["error"]["error"]);
     })
    }
 

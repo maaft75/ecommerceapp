@@ -22,11 +22,16 @@ export class SalesService {
     return this.http.get(this.salesUrl + "user/" + userId);
   }
   
-  getSalesFromLocation?(location){
+  getSalesFromLocation(location){
     return this.http.get(this.salesLocationUrl + location);
   }
 
-  getSalesCount?(location){
+  getSalesCount(location){
     return this.http.get(this.salesCountUrl + location);
+  }
+
+  //INDIVIDUAL COUNT OF A SOLD PRODUCT
+  getIndividualCountOfSoldProduct(loc, name){
+    return this.http.get(this.salesUrl + "individual/count?location=" + loc + "&name=" + name )
   }
 }

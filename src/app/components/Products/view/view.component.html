@@ -1,1 +1,42 @@
-<p>view works!</p>
+<div class="container-fluid">
+
+    <app-sidebar></app-sidebar>
+
+    <div class="container">
+
+        <br/><br/>
+        <div class="center">
+            <div class="form-group">
+                <select name="Location" placeholder="Location" class="col-sm-12 form-control" (change)="fetch($event.target.value)">
+                    <option selected> Select City/Location... </option>
+                    <option *ngFor="let location of locations" value="{{ location.locationName }}"> {{ location.locationName }} </option>
+                </select>
+            </div>
+        </div>
+        <div class="row row-special">
+            
+            <a class="col-sm-5 div-special" *ngFor="let allProduct of allProducts" (click)="fetchCount(allProduct.productName)">
+                
+                <br/><br/><br/><br/>
+                <h3 style="float: right;color: white;"> {{ allProduct.productName }} </h3>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<div id="myModal" class="modal" *ngIf="popUpModal">
+                
+    <div class="container modal-content col-sm-9">
+
+        <div (click)="closePinModal()" class="close">
+            <span class="close">&times;</span>
+            <br>
+            <div>
+                <h3 style="color: black;text-align: center;"> {{ product }} left : {{ net_goods }}</h3>
+            </div>
+            
+        </div>
+    </div>
+
+</div>

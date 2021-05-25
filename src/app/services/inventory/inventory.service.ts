@@ -18,15 +18,23 @@ export class InventoryService {
     return this.http.post(this.inventoryUrl, data);
   }
 
+  //GET ALL PRODUCTS IN THE INVENTORY
   getAllProductsInInventory() : Observable<any>{
     return this.http.get(this.inventoryUrl)
   }
 
-  getInventoriesFromLocation?(location){
+  //COUNT OF ALL INVENTORY
+  getInventoriesCount(location) : Observable<any>{
+    return this.http.get(this.inventoryCountUrl + location);
+  }
+
+  //GET PAGINATED INVENTORY FROM A CERTAIN LOCATION
+  getInventoriesFromLocation(location) : Observable<any>{
     return this.http.get(this.inventoryLocationUrl + location);
   }
 
-  getInventoriesCount?(location){
-    return this.http.get(this.inventoryCountUrl + location);
+  //INDIVIDUAL COUNT OF A SOLD PRODUCT
+  getIndividualCountOfProductFromTheInventory(loc, name){
+    return this.http.get(this.inventoryUrl + "individual/count?location=" + loc + "&name=" + name )
   }
 }
