@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-createuser',
@@ -36,6 +37,7 @@ export class CreateuserComponent implements OnInit {
             Name : ${response.name}
             Password : ${this.createUserForm.get("Password").value}
             Location : ${response.location}.`);
+      window.location.href = environment.frontendUrl + "sadmin/dashboard";
     },
     (error) => {
        alert(error["error"]["error"]);
