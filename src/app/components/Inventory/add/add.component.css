@@ -36,3 +36,21 @@
     width: 30px;
     height: 30px;
 }
+
+a{
+    background-color: #A12AD4;
+    color: #F1DEF9
+}
+
+a:hover{
+    background-color: #8A24B6;
+}
+
+a:active{
+    background-color: #7F21A8;
+}
+
+.loading{
+    width: 30px;
+    height: 30px;
+}

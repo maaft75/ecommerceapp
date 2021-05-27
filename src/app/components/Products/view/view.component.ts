@@ -38,7 +38,6 @@ export class ViewComponent implements OnInit {
 
   fetch(eve){
     this.location = eve;
-    console.log(this.location)
   }
 
   fetchCount(name){

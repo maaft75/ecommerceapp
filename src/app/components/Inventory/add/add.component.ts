@@ -16,6 +16,7 @@ export class AddComponent implements OnInit {
   public InventoryForm : FormGroup;
   public moreProductsList : any = [];
   public allSavedProducts : any = [];
+  public loginButton : boolean = true;
   public numberOfProductsAdded : Number;
   public checkIfAnyProductHasBeenAdded : boolean = false;
 
@@ -41,6 +42,10 @@ export class AddComponent implements OnInit {
     })
   }
 
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
   AddMoreProducts(){
     this.moreProductsList.push(this.InventoryForm.value);
     this.InventoryForm.reset();
@@ -49,8 +54,10 @@ export class AddComponent implements OnInit {
   }
 
   SaveProducts(){
+    this.loginButton = false;
+    this.delay(2000);
     this.inventoryService.addProductToInventory(this.moreProductsList).subscribe((response) => {
-      alert(`${this.moreProductsList.length} Products successfully saved.`);
+      alert(`${this.moreProductsList.length} Product(s) successfully sent to ${this.InventoryForm.get("location_Sent").value}.`);
       window.location.href = environment.frontendUrl + "sadmin/dashboard";
     })
   }

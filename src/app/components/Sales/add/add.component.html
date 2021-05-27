@@ -59,19 +59,19 @@
                     <small> Total Price is required. </small><br/>
                 </div>
                 
-                <div (click)="addMoreSoldProducts()">
-                    <a class="form-control btn btn-success" style="color: white;">Add Products</a>
+                <div (click)="addMoreSoldProducts()" *ngIf="loginButton" style="opacity: 0.65;">
+                    <a class="form-control btn" style="color: white;">Add Products</a>
                 </div>
                 <br>
-                <div>
-                    <button type="submit" class="form-control btn btn-success" style="color: white;">Save Products</button>
+                <div (click)="SaveSoldProducts()" *ngIf="loginButton">
+                    <a type="submit" class="form-control btn" style="color: white;">Save Products</a>
                 </div>
 
-                <!-- <div class="col-sm-12" *ngIf="!button">
-                    <button class="col-sm-12 btn btn-success" [disabled]>
+                <div class="col-sm-12" *ngIf="!loginButton">
+                    <a class="col-sm-12 btn">
                         <img class="loading" src="https://firebasestorage.googleapis.com/v0/b/storeimagegallery.appspot.com/o/images%2Fae84325701f6d97ac4ad7e7951ac9063_w200.webp?alt=media&token=7eb12a30-3899-458a-8c5c-587c49e0b884"/>
-                    </button>
-                </div> -->
+                    </a>
+                </div>
 
                 <br>
                 <br>

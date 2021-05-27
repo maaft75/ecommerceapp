@@ -26,6 +26,7 @@ export class AddComponent implements OnInit {
   public toBePrinted : any = [];
   public allProducts : any = [];
   public allSavedProducts : any = [];
+  public loginButton : boolean = true;
   public numberOfProductsAdded : Number;
   public printModal : string = "display : none";
   public checkIfAnyProductHasBeenAdded : boolean = false;
@@ -113,6 +114,7 @@ export class AddComponent implements OnInit {
   }
   
   SaveSoldProducts(){
+    this.loginButton = false;
     this.salesService.addSoldProducts(this.allProducts).subscribe(
       (response) => {
       this.toBePrinted = response;
