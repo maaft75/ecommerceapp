@@ -28,6 +28,7 @@ export class AddComponent implements OnInit {
   public allSavedProducts : any = [];
   public loginButton : boolean = true;
   public numberOfProductsAdded : Number;
+  public PriceOfAllGoodsSold = 0;
   public printModal : string = "display : none";
   public checkIfAnyProductHasBeenAdded : boolean = false;
 
@@ -153,17 +154,20 @@ export class AddComponent implements OnInit {
     return this.salesForm.get("total_Price");
   }
 
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
   printReceipt(){
     var doc = new jsPDF('p', 'mm', 'a3');
 
     
     doc.setFontSize(18);
-    doc.text('Receipt', 131, 8);
-    doc.text(`Order No : ${this.userName}`, 10, 90);
-    doc.text(`SOLD BY : ${this.userName}`, 10, 100);
+    doc.text('ARIYO AND LEBI FOOD LOGISTICS', 96, 8);
+    doc.text('RECEIPT', 131, 16);
     doc.setFontSize(11);
     doc.setTextColor(100);
-
+    
     let pdfData : any = [];
 
     this.toBePrinted.forEach(element => {
@@ -171,10 +175,21 @@ export class AddComponent implements OnInit {
       pdfData.push(data);
     });
 
+    this.toBePrinted.forEach(element => {
+      this.PriceOfAllGoodsSold = this.PriceOfAllGoodsSold + Number(element["total_Price"]);
+    });
+    
+    this.delay(5000);
+    
+    //doc.text(`ORDER NO : ${this.userName}`, 14, 37);
+    doc.text(`SOLD BY : ${this.userName}`, 14, 23);
+    doc.text(`TOTAL PRICE : ${this.PriceOfAllGoodsSold}`, 14, 30);
+
     (doc as any).autoTable({
       head: this.head,
       body:  pdfData,
       theme: 'striped',
+      startY: 37,
       didDrawCell: data => {
         console.log(data.column.index)
       }
