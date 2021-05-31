@@ -1,7 +1,6 @@
 import 'jspdf-autotable';
 import jsPDF from 'jspdf';
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SalesService } from 'src/app/services//sales/sales.service';
@@ -15,7 +14,6 @@ import { InventoryService } from 'src/app/services/inventory/inventory.service';
 })
 export class AddComponent implements OnInit {
   
-  
   public sales : any;
   public userId : Number;
   public unitprice : any;
@@ -25,13 +23,12 @@ export class AddComponent implements OnInit {
   public salesForm : FormGroup;
   public toBePrinted : any = [];
   public allProducts : any = [];
+  public PriceOfAllGoodsSold = 0;
   public allSavedProducts : any = [];
   public loginButton : boolean = true;
   public numberOfProductsAdded : Number;
-  public PriceOfAllGoodsSold = 0;
   public printModal : string = "display : none";
   public checkIfAnyProductHasBeenAdded : boolean = false;
-
   public head : any = [['Name', 'Quantity', 'Unit Price', 'Total Price']];
   
   constructor(
@@ -122,7 +119,8 @@ export class AddComponent implements OnInit {
       this.printModal = "display : block";
     }, 
     (error) => {
-      alert("An error has occured.")
+      alert("An error has occured.");
+      location.reload();
     })
   }
   

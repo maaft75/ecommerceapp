@@ -41,6 +41,7 @@ export class CreateuserComponent implements OnInit {
     },
     (error) => {
        alert(error["error"]["error"]);
+       location.reload();
     })
    }
 

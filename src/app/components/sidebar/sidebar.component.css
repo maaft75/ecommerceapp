@@ -1,7 +1,7 @@
 .sideBar{
     left: 0;
     z-index: 1;
-    width: 15%;
+    width: 25%;
     height: 100%;
     overflow: auto;
     position: fixed;
@@ -50,7 +50,7 @@ a:active{
     .sideBar{
         left: 0;
         z-index: 1;
-        width: 45%;
+        width: 55%;
         height: 100%;
         overflow: auto;
         position: fixed;
