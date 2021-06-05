@@ -97,3 +97,16 @@ a:hover{
 a:active{
     background-color: #7F21A8;
 }
+
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 30%;
+}
+  
+td, th {
+text-align: center;
+}

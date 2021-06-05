@@ -112,6 +112,7 @@ export class AddComponent implements OnInit {
   }
   
   SaveSoldProducts(){
+    this.printModal = "display : block";
     this.loginButton = false;
     this.salesService.addSoldProducts(this.allProducts).subscribe(
       (response) => {
@@ -201,5 +202,14 @@ export class AddComponent implements OnInit {
   
     doc.save(name);
     location.reload();
+    // var divContents = document.getElementById("d").innerHTML;
+    // var a = window.open('', '', 'height=70 width=80');
+    // a.document.write('<html>');
+    // a.document.write('<body > <h1>Div contents are <br>');
+    // a.document.write(divContents);
+    // a.document.write('</body></html>');
+    // a.document.close();
+    // a.print();
   }
+
 }
